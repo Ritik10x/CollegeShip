@@ -1,0 +1,23 @@
+{
+  "name": "backendcollagecampus",
+  "version": "2.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js",
+    "emulate": "firebase emulators:start --only functions",
+    "deploy": "cd functions && firebase deploy --only functions",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "CollageCampus backend — Firebase Auth + Cloud Functions (MongoDB removed)",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "firebase-admin": "^13.8.0",
+    "googleapis": "^144.0.0",
+    "nodemailer": "^8.0.7"
+  }
+}

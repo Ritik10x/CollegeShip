@@ -1,0 +1,51 @@
+// Firestore security rules
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && get(/databases/$(database)/documents/admins/$(request.auth.token.email)).data.role == "admin";
+    }
+
+    // Users can read only their own admin doc for UI checks; admins can manage admin docs.
+    match /admins/{email} {
+      allow get: if request.auth != null && (request.auth.token.email == email || isAdmin());
+      allow list, write: if isAdmin();
+    }
+    // Colleges collection: anyone can read, only admins can write
+    match /colleges/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    // Homepage review showcase: anyone can read, only admins can write
+    match /showcaseReviews/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    // Public site settings such as footer links/contact details
+    match /siteSettings/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    // Per-college student reviews
+    match /collegeReviews/{docId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null
+        && (request.auth.uid == resource.data.userId || isAdmin());
+    }
+    // Saved colleges per user
+    match /userFavorites/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    // Student application records
+    match /applications/{docId} {
+      allow create: if request.auth != null;
+      allow read, update, delete: if isAdmin();
+    }
+    // Other collections are denied by default.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

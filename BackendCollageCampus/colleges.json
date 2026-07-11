@@ -1,0 +1,1139 @@
+{
+    "success": true,
+    "data": {
+        "count": 15,
+        "collegeList": [
+            {
+                "_id": "69b6e0d0c8e0c1dbf655e4ae",
+                "user": "69b6e0cfc8e0c1dbf655e4ac",
+                "name": "Jaipur National University",
+                "logo": "college/19e336dfcfb6efbf4629e694fc8936.jpeg",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/6dbaa87fd79a09c02de2ed9aa9b61b.jpeg",
+                "description": "Jaipur National University, Jaipur is one of the top self-financed private university in Rajasthan sponsored by the Mahima Shiksha Samiti.",
+                "establishedDate": "2007-10-22T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "WASC",
+                    "AACSB",
+                    "ABET"
+                ],
+                "studentCount": 80000,
+                "website": "https://www.jnujaipur.ac.in",
+                "contactEmail": "info@jnujaipur.ac.in",
+                "emailDomain": "jnujaipur.ac.in",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "18001021900",
+                "features": [
+                    "Public Ivy",
+                    "Diverse Programs",
+                    "Research Excellence",
+                    "Bay Area Location"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Innovation Labs",
+                    "Sports Facilities",
+                    "Cultural Centers"
+                ],
+                "rankings": [
+                    "#3 National Universities",
+                    "#2 Best Value Schools",
+                    "#1 Most Innovative"
+                ],
+                "photos": [
+                    "college/ca2d576031b74589b38523bd00a7d6.jpeg",
+                    "college/05219646766449f96d1452ef6877e4.jpeg",
+                    "college/27c3f22a7288f26e1e7405317631b3.jpeg"
+                ],
+                "status": "Active",
+                "profileCompleted": 91,
+                "createdAt": "2026-03-15T16:39:44.241Z",
+                "updatedAt": "2026-04-12T19:07:22.182Z",
+                "__v": 0,
+                "brochure": "college/961f3ccd7f76d33ac0dad8cfce325e.pdf",
+                "location": {
+                    "coordinates": [
+                        75.85841,
+                        26.86496
+                    ],
+                    "formattedAddress": "SHOP-1 Agra Bypass, Kho Nagoriyan, Ghati Karolan, Jaipur 302017, India",
+                    "city": "Jaipur",
+                    "type": "Point"
+                },
+                "email": "jnuadmin@yopmail.com",
+                "phone": "8757967899",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "D.Ed (Diploma in Education)",
+                    "B.V.Sc & A.H. (Bachelor of Veterinary Science and Animal Husbandry)",
+                    "B.Sc (Hons) (Bachelor of Science - Honours)",
+                    "BUMS (Bachelor of Unani Medicine and Surgery)"
+                ]
+            },
+            {
+                "_id": "69e1523f4483af99fe040fa8",
+                "user": "69e1523f4483af99fe040fa6",
+                "name": "Maharishi Markandeshwar University",
+                "logo": "college/8e526af85e1ca47924c970c98e9dea.jpeg",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/d0bf93d5bd0c2f82f901153c1e8a20.jpeg",
+                "description": "Maharishi Markandeshwar University (MMDU) is a leading private university in Haryana, known for its strong academics, modern infrastructure, experienced faculty, and excellent placement opportunities. It offers a wide range of professional courses in engineering, medical, management, and other fields, with a focus on practical learning and overall student development.",
+                "establishedDate": "1993-03-01T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "WASC",
+                    "AACSB"
+                ],
+                "studentCount": 10500,
+                "website": "https://www.mmumullana.org",
+                "contactEmail": "info@mmumullana.org",
+                "emailDomain": "mmumullana.org",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "1731274475",
+                "features": [
+                    "Public Ivy",
+                    "Diverse Programs",
+                    "Research Excellence",
+                    "Bay Area Location"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Innovation Labs",
+                    "Sports Facilities",
+                    "Cultural Centers"
+                ],
+                "rankings": [
+                    "#1 Most Innovative"
+                ],
+                "campusMedia": [
+                    "college/e07e3a4c4146ba20bf2375be8b1f8c.jpeg",
+                    "college/7f81cfbea6a56669dd9cfd4bceab1c.jpeg",
+                    "college/5e43f535b7b63fce47595a821fb822.jpeg",
+                    "college/224446938bc86744859652e0786e27.jpeg",
+                    "college/17921914bc2138758ad6e51dbeab07.jpeg",
+                    "college/4fd903a09383ac102550db005e5c6c.jpeg",
+                    "college/c7577f728ffa2e78d39f02b3c64495.jpeg",
+                    "college/12d3ae4e3b6414c1674e8ccb2c3aae.jpeg",
+                    "college/d070396408f254a762b749e8c6c010.jpeg",
+                    "college/6bfc92f9466c283bf522655bde76b5.jpeg"
+                ],
+                "hostelMedia": [
+                    "college/7560a8f36f5e159658e6b27a00498c.jpeg"
+                ],
+                "academicMedia": [
+                    "college/404540c102f0dae6e04b55429868ad.jpeg",
+                    "college/d4e15c7092b8b052d2a699a2330d30.jpeg",
+                    "college/ede73656da6000d7345f600e46da41.jpeg",
+                    "college/e76c6b5c6916cdeb88f662d6d56102.jpeg"
+                ],
+                "location": {
+                    "coordinates": [
+                        76.80819,
+                        30.36422
+                    ],
+                    "formattedAddress": "Ambala, Haryana, India",
+                    "city": "Ambala",
+                    "type": "Point"
+                },
+                "status": "Active",
+                "profileCompleted": 90,
+                "createdAt": "2026-04-16T21:18:55.725Z",
+                "updatedAt": "2026-04-17T16:50:03.574Z",
+                "__v": 0,
+                "email": "info@mmumullana.org",
+                "phone": "8059933008",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "BCA (Bachelor of Computer Applications)",
+                    "B.Voc (Bachelor of Vocational Studies)",
+                    "D.Ed (Diploma in Education)",
+                    "MPA (Master of Public Administration)",
+                    "Integrated M.Tech (Integrated Master of Technology)",
+                    "B.V.Sc & A.H. (Bachelor of Veterinary Science and Animal Husbandry)",
+                    "M.Des (Master of Design)"
+                ]
+            },
+            {
+                "_id": "69e137514483af99fe02f464",
+                "user": "69e137514483af99fe02f462",
+                "name": "Ramaiah Institute Of Technology",
+                "logo": "college/be3ed3ca1bd9ac5eeffd5f542e8c92.jpeg",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/d0bf93d5bd0c2f82f901153c1e8a20.jpeg",
+                "description": "Ramaiah Institute of Technology is a leading Private engineering college in Bengaluru, known for its strong academics, modern infrastructure, and excellent placement opportunities. Established in 1962, it offers a wide range of undergraduate and postgraduate programs in engineering, management, and applied science.",
+                "establishedDate": "1963-01-10T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "AACSB",
+                    "WASC",
+                    "ABET",
+                    "NAAC A+",
+                    "NBA",
+                    "AICTE"
+                ],
+                "studentCount": 1265,
+                "website": "https://msrit.edu/",
+                "contactEmail": "principal@msrit.edu",
+                "emailDomain": "msrit.edu",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "8023607902",
+                "features": [
+                    "Public Ivy",
+                    "Research Excellence",
+                    "Bay Area Location",
+                    "NIRF #75",
+                    "Strong Placement Record",
+                    "Industry Collaboration",
+                    "Modern Infrastructure",
+                    "Excellent Facilities",
+                    "Diverse Programs",
+                    "Research & Innovation",
+                    "Industry collaborations",
+                    "200+Companies visit"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Innovation Labs",
+                    "Sports Facilities",
+                    "Cultural Centers",
+                    "Modern library",
+                    "Separate Hostels",
+                    "Cafeteria",
+                    "Gym",
+                    "Medical Facility",
+                    "IT Infrastructure",
+                    "Auditorium & Events"
+                ],
+                "rankings": [
+                    "#1 Most Innovative",
+                    "#3 National Universities",
+                    "Engineering #75",
+                    "Artitecture #31",
+                    "NIRF #75",
+                    "#2 Best Value Schools"
+                ],
+                "campusMedia": [
+                    "college/ea4ccb6e91206a056ba74a0e755d93.jpeg",
+                    "college/33f6a5224932c2395f441be725a3ec.jpeg",
+                    "college/df8884a3286e8ec4b5e1280084e1a6.jpeg",
+                    "college/4a6f16eef5e53d4c5b2899f4b27a93.jpeg",
+                    "college/8f5f7b3d4ebf81fbaeb3e2acafe9dd.jpeg",
+                    "college/5e56ab642f071de521d0b2f18b46c3.jpeg",
+                    "college/9c34900378e6abe575d67224fa9e3f.jpeg",
+                    "college/6e776e6c7e6d324f823ad7f5791838.jpeg",
+                    "college/c5b3b56f2f95489629197d02d7b6c2.jpeg",
+                    "college/1320f8e22a37d7e2e0a4361f7a26f6.jpeg",
+                    "college/0ad1816571781bb47884b1664bf73d.jpeg",
+                    "college/8d0c79359e41c7133421e053f21b5b.mp4",
+                    "college/b6166eaeb7b4f0519577410d6fa660.mp4",
+                    "college/ffe94a3fe451b78b4c637d0017b69b.mp4"
+                ],
+                "hostelMedia": [
+                    "college/6a4ea0a19d59c7e1aeb00be4d792ee.jpeg",
+                    "college/cdddc2b364a0793917dee99f664ef7.jpeg"
+                ],
+                "academicMedia": [
+                    "college/5f81514624eb0d9cbc89797dba92cd.jpeg",
+                    "college/34571d93998f9e78d6753cf9ae5606.jpeg",
+                    "college/4987a3ba11fb38d4991e80690671c6.jpeg",
+                    "college/83d917f96a1312d4e0c5db85b1036d.jpeg",
+                    "college/f9a4dbc086512bc0513520a4353ad3.jpeg",
+                    "college/b68579e0720c01419ee58d3aa6a4ec.mp4",
+                    "college/ed90c1f0761b1282e24975f79a147c.mp4"
+                ],
+                "location": {
+                    "coordinates": [
+                        77.56495,
+                        13.03459
+                    ],
+                    "formattedAddress": "MSR Nagar, Mathikere, Bengaluru, Karnataka, India",
+                    "city": "Bengaluru",
+                    "type": "Point"
+                },
+                "status": "Active",
+                "profileCompleted": 90,
+                "createdAt": "2026-04-16T19:24:01.945Z",
+                "updatedAt": "2026-04-16T20:31:06.677Z",
+                "__v": 0,
+                "email": "admn@msrit.edu",
+                "phone": "9742972744",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "D.Ed (Diploma in Education)",
+                    "BPT (Bachelor of Physiotherapy)",
+                    "B.Com (Bachelor of Commerce)",
+                    "BBA LL.B. (Bachelor of Business Administration, Bachelor of Laws)",
+                    "M.P.Ed (Master of Physical Education)",
+                    "B.Sc (Bachelor of Science)",
+                    "B.Des (Bachelor of Design)",
+                    "Integrated M.Tech (Integrated Master of Technology)"
+                ]
+            },
+            {
+                "_id": "69e085f64483af99fefff6fd",
+                "user": "69e085f64483af99fefff6fb",
+                "name": "RIMT University",
+                "logo": "college/acfc06e6bf4ccee793c658358d4042.png",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/a690bc4fa15caa1c44c46b2ca1b134.jpg",
+                "description": "Vision To become one of the most preferred learning places and a centre of excellence to promote and nurture future leaders who would facilitate the desired change in the society.\n\nMission To impart teaching and learning through cutting-edge technologies supported by the world class infrastructure with a view to empower and transform young minds into capable leaders and responsible citizens of India instilled with high ethical and moral values.",
+                "establishedDate": "2008-04-01T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "NAAC B+",
+                    "Indian nursing council",
+                    "Pharmacy council of india",
+                    "Council of architecture",
+                    "Bar council of india",
+                    "NCTE",
+                    "AIC"
+                ],
+                "studentCount": 4598,
+                "website": "https://rimt.ac.in",
+                "contactEmail": "rimt@mail.com",
+                "emailDomain": "1rimt.ac.in",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "18001370022",
+                "features": [
+                    "Public Ivy",
+                    "Diverse Programs",
+                    "Research Excellence",
+                    "Wifi",
+                    "Research",
+                    "250+ program",
+                    "placement cell with 600+ companies,"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Innovation Labs",
+                    "Sports Facilities",
+                    "Cultural Centers",
+                    "Hostel",
+                    "Trasport"
+                ],
+                "rankings": [
+                    "NAAC B+",
+                    "IIRF #169",
+                    "Regulatory Approvals"
+                ],
+                "campusMedia": [
+                    "college/407e49931e55f1a997afa48a8d62a5.webp"
+                ],
+                "hostelMedia": [
+                    "college/840b57277a1227c1dadc6c878c063c.webp"
+                ],
+                "academicMedia": [
+                    "college/1af1fff057bec7bdcf67c4a6d6a81d.jpeg"
+                ],
+                "location": {
+                    "coordinates": [
+                        76.29177,
+                        30.66509
+                    ],
+                    "formattedAddress": "Mandi Gobindgarh, Punjab, India",
+                    "city": "Mandi Gobindgarh",
+                    "type": "Point"
+                },
+                "status": "Active",
+                "profileCompleted": 90,
+                "createdAt": "2026-04-16T06:47:18.514Z",
+                "updatedAt": "2026-04-16T06:50:22.899Z",
+                "__v": 0,
+                "email": "rimt@mail.com",
+                "phone": "18001370022",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "M.A. (Master of Arts)",
+                    "MDS (Master of Dental Surgery)",
+                    "M.P.Ed (Master of Physical Education)",
+                    "B.V.Sc & A.H. (Bachelor of Veterinary Science and Animal Husbandry)",
+                    "D.Pharm (Diploma in Pharmacy)",
+                    "BNYS (Bachelor of Naturopathy and Yogic Sciences)"
+                ]
+            },
+            {
+                "_id": "69dfd63a4483af99feff5009",
+                "user": "69dfd63a4483af99feff5007",
+                "name": "Manipal University Jaipur",
+                "logo": "college/e0bbf7aa7f83c9857ccc666a75139a.svg",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/6549910bdd8f8b040af31ade19a21a.png",
+                "description": "The Manipal Education and Medical Group is an established leader in the field of education, research and healthcare. In a span of over seven decades, it has transformed the lives of more than 3,00,000 students from over 59 countries. The group includes five Universities - Manipal Academy of Higher Education (MAHE, Karnataka), Sikkim Manipal University (Sikkim), American University of Antigua (Caribbean Islands), Manipal International University (Malaysia) and Manipal University Jaipur (Jaipur).",
+                "establishedDate": "2011-01-01T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "NAAC Grade A+"
+                ],
+                "studentCount": 300002,
+                "website": "https://jaipur.manipal.edu/",
+                "contactEmail": "admissions@jaipur.manipal.edu",
+                "emailDomain": "manipal.edu",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "8306248211",
+                "features": [
+                    "Public Ivy",
+                    "Diverse Programs",
+                    "Research Excellence",
+                    "Bay Area Location"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Innovation Labs",
+                    "Sports Facilities",
+                    "Cultural Centers"
+                ],
+                "rankings": [
+                    "Ranked in 601-800 band globally in Engineering by THE World University Rankings by Subject 2026",
+                    "Ranked in 801-1000 band globally in Computer Science by THE World University Rankings by Subject 2026",
+                    "Ranked 86th in Southern Asia in QS World University Rankings: Sustainability 2026",
+                    "Ranked in 11-50 band in India Rankings 2024 by NIRF under Innovation Category"
+                ],
+                "campusMedia": [
+                    "college/e5834a02514b7361a866dbfcd85942.mp4",
+                    "college/ebfd24446ac1ceb6daa690252a4b52.png"
+                ],
+                "hostelMedia": [
+                    "college/16e2ded1ff6ecc458174068fb038d3.mp4",
+                    "college/b2e997a4ee2c3730a2260275c77538.mp4",
+                    "college/d1281db59acbb24f336085a977dd7a.mp4"
+                ],
+                "academicMedia": [
+                    "college/0012eeaec4ca85c7e852c2f0a421b1.png"
+                ],
+                "location": {
+                    "coordinates": [
+                        75.56523,
+                        26.84386
+                    ],
+                    "formattedAddress": "Manipal University Jaipur, Dahmi Kalan, Sanganer 303007, India",
+                    "city": "Sanganer",
+                    "type": "Point"
+                },
+                "status": "Active",
+                "profileCompleted": 90,
+                "createdAt": "2026-04-15T18:17:30.792Z",
+                "updatedAt": "2026-04-15T18:17:30.792Z",
+                "__v": 0,
+                "email": "admissions@jaipur.manipal.edu",
+                "phone": "8306248211",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "D.Pharm (Diploma in Pharmacy)",
+                    "M.Arch (Master of Architecture)",
+                    "BAMS (Bachelor of Ayurvedic Medicine and Surgery)",
+                    "B.Arch (Bachelor of Architecture)",
+                    "M.A. (Master of Arts)",
+                    "BBA LL.B. (Bachelor of Business Administration, Bachelor of Laws)"
+                ]
+            },
+            {
+                "_id": "69dfcb998f5a6d8e4866bfef",
+                "user": "69dfcb998f5a6d8e4866bfed",
+                "name": "Poornima College of Engineering",
+                "logo": "college/4334a084a901a76e2f0e18b375cfc7.jpg",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/6549910bdd8f8b040af31ade19a21a.png",
+                "description": "Born with a vision of creating an engineering college, Poornima College & Institute was established about 3 decades ago in the year 2000 in Jaipur (Rajasthan). With the primary aim to offer excellent professional & technical education to the students, Poornima College & Institute was created under the flagship of Shanti Education Society (SES) that engraved its existence in the year 1999, thereby registering itself under the Rajasthan Societies act.",
+                "establishedDate": "2000-01-01T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "WASC",
+                    "AACSB",
+                    "ABET",
+                    "NAAC A++"
+                ],
+                "studentCount": 6500,
+                "website": "https://www.poornima.org",
+                "contactEmail": "info@poornima.org",
+                "emailDomain": "poornima.org",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "9928666222",
+                "features": [
+                    "Public Ivy",
+                    "Diverse Programs",
+                    "Research Excellence",
+                    "ICT-enabled classrooms",
+                    "Bay Area Location"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Innovation Labs",
+                    "Sports Facilities",
+                    "Cultural Centers"
+                ],
+                "rankings": [
+                    "MOU signed with Military College of Electrical & Mechanical Engineering (MCEME), Secunderabad, for Academic Collaboration and Research",
+                    "State Rank 1 in Rajasthan among all design schools by IIRF Ranking 2024.",
+                    "1th Chronicle's All-India Engineering Colleges rankings-2023, Faculty of Engineering and Technology has secured an impressive 24th rank among engineering colleges across the entire country with A+ grade",
+                    "Poornima University is ranked one amongst top 47 private universities of our country (source – The India Today Aug 4 to 10, 2020, Vol No – XLV No - 32)"
+                ],
+                "campusMedia": [
+                    "college/714aad3ea0f5b0ae997ae82cfbec44.png",
+                    "college/4fcaf9725886ca2b0ada1e4ec36a01.mp4",
+                    "college/2ffed3487abc5c57c6230884ff7f53.png",
+                    "college/5bec1378cdbab9af926dc0e17205f6.png"
+                ],
+                "hostelMedia": [
+                    "college/20a0e08b1943efbe4f0eb4401eba07.mp4",
+                    "college/3ab9aca437161fd1cad2894d0e2139.png"
+                ],
+                "academicMedia": [
+                    "college/fafe5df807b4236c87a8ef782e0c23.png",
+                    "college/fef45eb76014c2f8aa5ee0927688b2.png",
+                    "college/6df3f2bd6952d538190b855f3d0c49.png"
+                ],
+                "location": {
+                    "coordinates": [
+                        75.85206,
+                        26.76762
+                    ],
+                    "formattedAddress": "Riico Institutional Area, Sitapura, Jaipur, Rajasthan, India",
+                    "city": "Jaipur",
+                    "type": "Point"
+                },
+                "status": "Active",
+                "profileCompleted": 90,
+                "createdAt": "2026-04-15T17:32:09.532Z",
+                "updatedAt": "2026-04-15T18:19:44.607Z",
+                "__v": 0,
+                "email": "info@poornima.org",
+                "phone": "9928555222",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "BBA LL.B. (Bachelor of Business Administration, Bachelor of Laws)",
+                    "Ph.D (Doctor of Philosophy)",
+                    "BUMS (Bachelor of Unani Medicine and Surgery)",
+                    "BHMS (Bachelor of Homeopathic Medicine and Surgery)",
+                    "M.E. (Master of Engineering)",
+                    "M.Arch (Master of Architecture)",
+                    "MPA (Master of Public Administration)",
+                    "BA LL.B. (Bachelor of Arts, Bachelor of Laws)"
+                ]
+            },
+            {
+                "_id": "68bdc79d8cf0cd51c465baee",
+                "user": "68bdc79d8cf0cd51c465baec",
+                "name": "Vivekanand Global University",
+                "type": "Private",
+                "accreditation": [
+                    "WASC",
+                    "ABET",
+                    "AACSB"
+                ],
+                "website": "https://www.vgu.ac.in/",
+                "features": [
+                    "Public Ivy",
+                    "Diverse Programs",
+                    "Research Excellence",
+                    "Bay Area Location"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Innovation Labs",
+                    "Sports Facilities",
+                    "Cultural Centers"
+                ],
+                "rankings": [
+                    "#3 National Universities",
+                    "#1 Most Innovative",
+                    "#2 Best Value Schools"
+                ],
+                "status": "Active",
+                "createdAt": "2025-09-07T17:57:49.842Z",
+                "updatedAt": "2026-04-26T10:30:55.358Z",
+                "__v": 0,
+                "brochure": "student/e79dd4316e6301e3809168c4a5c5e4.pdf",
+                "contactEmail": "registrar@vgu.ac.in",
+                "contactPhone": "9549360555",
+                "description": "We inspire students to dream big – whether it's excelling in global management, research, initiating successful startups, conquering competitive exams, or pursuing an international sports career.",
+                "establishedDate": "2012-02-15T00:00:00.000Z",
+                "logo": "college/247f1bef6c4de9025ecac07490b0ca.png",
+                "studentCount": 10000,
+                "profileCompleted": 90,
+                "photos": [
+                    "college/36fd103ed5f759e4ef7d72c0204f3d.jpeg",
+                    "college/9cb7231aaab92518ad2edb330932de.png"
+                ],
+                "contactPhoneCountryCode": "+91",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/71789c7dd6684949b48132cf24f06d.jpeg",
+                "academicMedia": [
+                    "college/29d04ca4c7c381ae849567003c13f8.jpeg"
+                ],
+                "campusMedia": [
+                    "college/fa313257eeac2919c42826975178fd.jpeg",
+                    "college/51c9412cc51b33af9d17b025dfab42.jpeg",
+                    "college/85fe89715cca80bff540816d09e1df.mp4"
+                ],
+                "hostelMedia": [
+                    "college/65f0ad136d866a63f70bca32901a7a.jpeg",
+                    "college/5268b9e4f876f6ed93e0794812ef55.jpeg"
+                ],
+                "location": {
+                    "coordinates": [
+                        75.82183,
+                        26.83218
+                    ],
+                    "formattedAddress": "Jagatpura, Jaipur, Rajasthan, India",
+                    "city": "Jaipur",
+                    "type": "Point"
+                },
+                "requiredDocuments": [
+                    {
+                        "name": "Aadhar Card",
+                        "isRequired": false
+                    },
+                    {
+                        "name": "10th Marksheet",
+                        "isRequired": true
+                    },
+                    {
+                        "name": "12th Marksheet",
+                        "isRequired": true
+                    }
+                ],
+                "email": "22csa2bc077@vgu.ac.in",
+                "phone": "9875643567",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 5,
+                "isFavorite": false,
+                "courses": [
+                    "B.Com LL.B. (Bachelor of Commerce, Bachelor of Laws)",
+                    "D.Nursing (Diploma in Nursing)",
+                    "MBA (Master of Business Administration)",
+                    "M.Des (Master of Design)",
+                    "BBA (Bachelor of Business Administration)"
+                ]
+            },
+            {
+                "_id": "69935907edf41506d7ead1c0",
+                "user": "69935907edf41506d7ead1be",
+                "name": "ITM BUSINESS SCHOOL",
+                "logo": "college/ababcf1238db1a1d6c699cb13ab4b2.jpeg",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/634088576544fda5c7719a673cabad.jpeg",
+                "description": "ITM offers a diverse range of programs designed to meet our students academic and professional aspirations. From undergraduate courses that delve deep into specialized fields, fostering advanced knowledge and expertise, to post graduate courses that equip future leaders with the strategic skills and global perspective necessary for success in today's competitive business environment.\n\nOur programs are crafted to blend rigorous academic curriculum with practical application, preparing graduates to excel in their chosen careers and make meaningful contributions to their industries and communities.",
+                "establishedDate": "1999-01-01T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "WASC",
+                    "AACSB",
+                    "ABET"
+                ],
+                "studentCount": 10000,
+                "website": "https://www.itm.edu/business-school/",
+                "contactEmail": "applicant.support@itm.edu",
+                "emailDomain": "itm.edu",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "18002099727",
+                "features": [
+                    "Public Ivy",
+                    "Diverse Programs",
+                    "Research Excellence",
+                    "Bay Area Location"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Innovation Labs",
+                    "Sports Facilities",
+                    "Cultural Centers"
+                ],
+                "rankings": [
+                    "#3 National Universities",
+                    "#2 Best Value Schools",
+                    "#1 Most Innovative"
+                ],
+                "photos": [
+                    "college/6f7afc34febf87c20a2f9d46c48487.jpeg",
+                    "college/775b31b540b381580c63db5241ff13.jpeg",
+                    "college/475571392865f7cb7d1a81838ff089.jpeg"
+                ],
+                "status": "Active",
+                "profileCompleted": 85,
+                "createdAt": "2026-02-16T17:51:03.679Z",
+                "updatedAt": "2026-04-12T18:56:39.626Z",
+                "__v": 0,
+                "location": {
+                    "coordinates": [
+                        73.06198,
+                        19.03293
+                    ],
+                    "formattedAddress": "Sector 4, Kharghar, Navi Mumbai, Maharashtra, India",
+                    "city": "Navi Mumbai",
+                    "type": "Point"
+                },
+                "email": "itmbusinessscholl@yopmail.com",
+                "phone": "9678769866",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "B.Voc (Bachelor of Vocational Studies)",
+                    "B.El.Ed (Bachelor of Elementary Education)",
+                    "BHMCT (Bachelor of Hotel Management and Catering Technology)",
+                    "BPA (Bachelor of Performing Arts)",
+                    "MMS (Master of Management Studies)"
+                ]
+            },
+            {
+                "_id": "69c333ae4f7013b8c70129c8",
+                "user": "69c333ae4f7013b8c70129c6",
+                "name": "Guru Kashi University",
+                "logo": "college/1fb1517fc3d88cb97079582aa3077e.jpeg",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/8cc7618378f95fee0e2fd9c3a4520d.jpeg",
+                "description": "Guru Kashi University got approval by University Grant Commission (UGC) in 2011 and the first college was established in 1997. GKU is the fastest growing university in India, having A++ accreditation from the National Assessment and Accreditation Council (NAAC) of India.\n\nIn 2001, GGS College of Engineering & Technology was established, followed in 2005 by GGS College of Education. In 2006, GGS Institute of IT and Research and the GGS College of Nursing & GGS Collegiate Public School were established in 2009. Finally all courses came under one umbrella “GKU”, which came into existence in 2011. Guru Kashi University was established by Punjab Act No. 37 of 2011.",
+                "establishedDate": "1997-04-04T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "WASC"
+                ],
+                "studentCount": 7000,
+                "website": "https://gurukashiuniversity.in/public/",
+                "contactEmail": "info@gku.ac.in",
+                "emailDomain": "www.gku.ac.in",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "9905095076",
+                "features": [
+                    "Diverse Programs"
+                ],
+                "facilities": [
+                    "Innovation Labs"
+                ],
+                "rankings": [
+                    "#3 National Universities",
+                    "#1 Most Innovative",
+                    "#2 Best Value Schools"
+                ],
+                "photos": [
+                    "college/0243fbadd2e6dc4a8c85c7c44b3164.jpeg"
+                ],
+                "status": "Active",
+                "profileCompleted": 83,
+                "createdAt": "2026-03-25T01:00:30.838Z",
+                "updatedAt": "2026-04-12T19:13:28.434Z",
+                "__v": 0,
+                "location": {
+                    "coordinates": [
+                        75.12577,
+                        29.96116
+                    ],
+                    "formattedAddress": "Guru Kashi University, SH-17, Talwandi Sabo 151302, India",
+                    "city": "Talwandi Sabo",
+                    "type": "Point"
+                },
+                "email": "gulamashraf6272@gmail.com",
+                "phone": "7978523626",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "BHMS (Bachelor of Homeopathic Medicine and Surgery)",
+                    "B.A. (Hons) (Bachelor of Arts - Honours)",
+                    "MSW (Master of Social Work)",
+                    "Ph.D (Doctor of Philosophy)"
+                ]
+            },
+            {
+                "_id": "69b8657b4f7013b8c7fc4c26",
+                "user": "69b8657a4f7013b8c7fc4c24",
+                "name": "Jagannath University",
+                "logo": "college/59d238440d15f3f4e103692f395c9d.png",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/82ece7b6eef8059b0aeefdfb9be502.jpeg",
+                "description": "Admissions for the 2026-27 session are currently open for various undergraduate and postgraduate courses. \nJagannath University, Jaipur\nJagannath University, Jaipur\nAgriculture: Highly regarded for its B.Sc. (Hons.) Agriculture program, which is ICAR accredited.\nEngineering & IT: Offers B.Tech, BCA, and MCA with a focus on modern skills like AI, Machine Learning, and Cyber Security.\nLaw & Management: Includes 5-year integrated BA/BBA LLB, BBA, and MBA programs.\nMedical & Health Sciences: Offers Physiotherapy (BPT), Pharmacy (B.Pharm), and BNYS.\nSelection Criteria: Admission is primarily based on merit and entrance exams like CUET, JEE, or the university's own JUEE. \nJagannath University, Jaipur\nJagannath University, Jaipur\n +6 Rankings & Recognition (Current)\nAgriculture: Ranked #6 in India in the Outlook-ICARE rankings for 2026.\nRegional Status: Ranked 9th among private universities in the North Zone.\nEducation: Positioned at #164 nationally and 11th in Rajasthan for 2025. \nCampus Life & Placements\nInfrastructure: The campus features well-maintained modern classrooms, laboratories, and a library. There are 4 separate hostels for boys and girls with 24-hour Wi-Fi, medical facilities, and electricity backup.\nPlacements: The Corporate Resource Management Centre (CRMC) facilitates recruitment drives.\nHighest Package: Reported up to ₹12 LPA.\nAverage Package: Approximately ₹4 LPA.\nTop Recruiters: Include HDFC Bank, Genpact, Infosys, Wipro, and TCS.\nEnvironment: Students frequently praise the green, eco-friendly campus and the supportive, qualified faculty. \nAre you looking for specific fee structures or eligibility details for a particular course at Jagannath University?\nJagannath University Jaipur (Chaksu Campus) - JU University\nJagannath University Jaipur (JU Chaksu Jaipur) is ranked among the best universities in Jaipur and is a top university in Rajastha...\nJagannath University, Jaipur\nNAAC accredited University in Jaipur, Rajasthan. Jagan Nath University, Jaipur has been established by an Act of the Rajasthan Sta...\nJagannath University, Jaipur",
+                "establishedDate": "2008-03-28T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "AACSB",
+                    "WASC"
+                ],
+                "studentCount": 6245,
+                "website": "https://www.jagannathuniversity.org/",
+                "contactEmail": "user@gmail.com",
+                "emailDomain": "gmail.com",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "7649780555",
+                "features": [
+                    "Diverse Programs",
+                    "Research Excellence"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Sports Facilities",
+                    "Innovation Labs"
+                ],
+                "rankings": [
+                    "#3 National Universities",
+                    "#1 Most Innovative"
+                ],
+                "photos": [
+                    "college/7215fefa3f58f92a9eec8b71d66544.png",
+                    "college/9cf57b06b00fc76f4175a86e581589.jpeg"
+                ],
+                "status": "Active",
+                "profileCompleted": 83,
+                "createdAt": "2026-03-16T20:18:03.305Z",
+                "updatedAt": "2026-04-12T19:08:29.323Z",
+                "__v": 0,
+                "location": {
+                    "coordinates": [
+                        75.9161,
+                        26.67146
+                    ],
+                    "formattedAddress": "Kotkhavda Bypass & NH-12, Chaksu 303901, India",
+                    "city": "Chaksu",
+                    "type": "Point"
+                },
+                "email": "gashrf881@gmail.com",
+                "phone": "7685076232",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "Integrated LL.B (Integrated Bachelor of Laws)",
+                    "M.A. (Master of Arts)",
+                    "BBA (Bachelor of Business Administration)",
+                    "MPA (Master of Public Administration)"
+                ]
+            },
+            {
+                "_id": "new_college_id_1",
+                "user": "new_user_id_1",
+                "name": "Amity University",
+                "logo": "college/59d238440d15f3f4e103692f395c9d.png",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/ddd71082108a4c7dbf1e848a2b3bcf.jpeg",
+                "description": "Admissions for the 2026-27 session are currently open for various undergraduate and postgraduate courses. \nJagannath University, Jaipur\nJagannath University, Jaipur\nAgriculture: Highly regarded for its B.Sc. (Hons.) Agriculture program, which is ICAR accredited.\nEngineering & IT: Offers B.Tech, BCA, and MCA with a focus on modern skills like AI, Machine Learning, and Cyber Security.\nLaw & Management: Includes 5-year integrated BA/BBA LLB, BBA, and MBA programs.\nMedical & Health Sciences: Offers Physiotherapy (BPT), Pharmacy (B.Pharm), and BNYS.\nSelection Criteria: Admission is primarily based on merit and entrance exams like CUET, JEE, or the university's own JUEE. \nJagannath University, Jaipur\nJagannath University, Jaipur\n +6 Rankings & Recognition (Current)\nAgriculture: Ranked #6 in India in the Outlook-ICARE rankings for 2026.\nRegional Status: Ranked 9th among private universities in the North Zone.\nEducation: Positioned at #164 nationally and 11th in Rajasthan for 2025. \nCampus Life & Placements\nInfrastructure: The campus features well-maintained modern classrooms, laboratories, and a library. There are 4 separate hostels for boys and girls with 24-hour Wi-Fi, medical facilities, and electricity backup.\nPlacements: The Corporate Resource Management Centre (CRMC) facilitates recruitment drives.\nHighest Package: Reported up to ₹12 LPA.\nAverage Package: Approximately ₹4 LPA.\nTop Recruiters: Include HDFC Bank, Genpact, Infosys, Wipro, and TCS.\nEnvironment: Students frequently praise the green, eco-friendly campus and the supportive, qualified faculty. \nAre you looking for specific fee structures or eligibility details for a particular course at Jagannath University?\nJagannath University Jaipur (Chaksu Campus) - JU University\nJagannath University Jaipur (JU Chaksu Jaipur) is ranked among the best universities in Jaipur and is a top university in Rajastha...\nJagannath University, Jaipur\nNAAC accredited University in Jaipur, Rajasthan. Jagan Nath University, Jaipur has been established by an Act of the Rajasthan Sta...\nJagannath University, Jaipur",
+                "establishedDate": "2008-03-28T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "AACSB",
+                    "WASC"
+                ],
+                "studentCount": 6245,
+                "website": "https://www.jagannathuniversity.org/",
+                "contactEmail": "user@gmail.com",
+                "emailDomain": "gmail.com",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "7649780555",
+                "features": [
+                    "Diverse Programs",
+                    "Research Excellence"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Sports Facilities",
+                    "Innovation Labs"
+                ],
+                "rankings": [
+                    "#3 National Universities",
+                    "#1 Most Innovative"
+                ],
+                "photos": [
+                    "college/7215fefa3f58f92a9eec8b71d66544.png",
+                    "college/9cf57b06b00fc76f4175a86e581589.jpeg"
+                ],
+                "status": "Active",
+                "profileCompleted": 83,
+                "createdAt": "2026-03-16T20:18:03.305Z",
+                "updatedAt": "2026-04-12T19:08:29.323Z",
+                "__v": 0,
+                "location": {
+                    "coordinates": [
+                        75.9161,
+                        26.67146
+                    ],
+                    "formattedAddress": "Kotkhavda Bypass & NH-12, Chaksu 303901, India",
+                    "city": "Chaksu",
+                    "type": "Point"
+                },
+                "email": "gashrf881@gmail.com",
+                "phone": "7685076232",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "B.A. (Bachelor of Arts)",
+                    "Diploma (Diploma in Engineering)",
+                    "B.Com (Hons) (Bachelor of Commerce - Honours)",
+                    "B.Com LL.B. (Bachelor of Commerce, Bachelor of Laws)",
+                    "MDS (Master of Dental Surgery)"
+                ]
+            },
+            {
+                "_id": "new_college_id_2",
+                "user": "new_user_id_2",
+                "name": "SRM Institute of Science and Technology",
+                "logo": "college/59d238440d15f3f4e103692f395c9d.png",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/9910922f451e26aa92ff6b45782b75.jpeg",
+                "description": "Admissions for the 2026-27 session are currently open for various undergraduate and postgraduate courses. \nJagannath University, Jaipur\nJagannath University, Jaipur\nAgriculture: Highly regarded for its B.Sc. (Hons.) Agriculture program, which is ICAR accredited.\nEngineering & IT: Offers B.Tech, BCA, and MCA with a focus on modern skills like AI, Machine Learning, and Cyber Security.\nLaw & Management: Includes 5-year integrated BA/BBA LLB, BBA, and MBA programs.\nMedical & Health Sciences: Offers Physiotherapy (BPT), Pharmacy (B.Pharm), and BNYS.\nSelection Criteria: Admission is primarily based on merit and entrance exams like CUET, JEE, or the university's own JUEE. \nJagannath University, Jaipur\nJagannath University, Jaipur\n +6 Rankings & Recognition (Current)\nAgriculture: Ranked #6 in India in the Outlook-ICARE rankings for 2026.\nRegional Status: Ranked 9th among private universities in the North Zone.\nEducation: Positioned at #164 nationally and 11th in Rajasthan for 2025. \nCampus Life & Placements\nInfrastructure: The campus features well-maintained modern classrooms, laboratories, and a library. There are 4 separate hostels for boys and girls with 24-hour Wi-Fi, medical facilities, and electricity backup.\nPlacements: The Corporate Resource Management Centre (CRMC) facilitates recruitment drives.\nHighest Package: Reported up to ₹12 LPA.\nAverage Package: Approximately ₹4 LPA.\nTop Recruiters: Include HDFC Bank, Genpact, Infosys, Wipro, and TCS.\nEnvironment: Students frequently praise the green, eco-friendly campus and the supportive, qualified faculty. \nAre you looking for specific fee structures or eligibility details for a particular course at Jagannath University?\nJagannath University Jaipur (Chaksu Campus) - JU University\nJagannath University Jaipur (JU Chaksu Jaipur) is ranked among the best universities in Jaipur and is a top university in Rajastha...\nJagannath University, Jaipur\nNAAC accredited University in Jaipur, Rajasthan. Jagan Nath University, Jaipur has been established by an Act of the Rajasthan Sta...\nJagannath University, Jaipur",
+                "establishedDate": "2008-03-28T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "AACSB",
+                    "WASC"
+                ],
+                "studentCount": 6245,
+                "website": "https://www.jagannathuniversity.org/",
+                "contactEmail": "user@gmail.com",
+                "emailDomain": "gmail.com",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "7649780555",
+                "features": [
+                    "Diverse Programs",
+                    "Research Excellence"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Sports Facilities",
+                    "Innovation Labs"
+                ],
+                "rankings": [
+                    "#3 National Universities",
+                    "#1 Most Innovative"
+                ],
+                "photos": [
+                    "college/7215fefa3f58f92a9eec8b71d66544.png",
+                    "college/9cf57b06b00fc76f4175a86e581589.jpeg"
+                ],
+                "status": "Active",
+                "profileCompleted": 83,
+                "createdAt": "2026-03-16T20:18:03.305Z",
+                "updatedAt": "2026-04-12T19:08:29.323Z",
+                "__v": 0,
+                "location": {
+                    "coordinates": [
+                        75.9161,
+                        26.67146
+                    ],
+                    "formattedAddress": "Kotkhavda Bypass & NH-12, Chaksu 303901, India",
+                    "city": "Chaksu",
+                    "type": "Point"
+                },
+                "email": "gashrf881@gmail.com",
+                "phone": "7685076232",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "BHMS (Bachelor of Homeopathic Medicine and Surgery)",
+                    "Integrated M.Tech (Integrated Master of Technology)",
+                    "BCA (Bachelor of Computer Applications)",
+                    "BSMS (Bachelor of Siddha Medicine and Surgery)"
+                ]
+            },
+            {
+                "_id": "new_college_id_3",
+                "user": "new_user_id_3",
+                "name": "Vellore Institute of Technology",
+                "logo": "college/59d238440d15f3f4e103692f395c9d.png",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/9910922f451e26aa92ff6b45782b75.jpeg",
+                "description": "Admissions for the 2026-27 session are currently open for various undergraduate and postgraduate courses. \nJagannath University, Jaipur\nJagannath University, Jaipur\nAgriculture: Highly regarded for its B.Sc. (Hons.) Agriculture program, which is ICAR accredited.\nEngineering & IT: Offers B.Tech, BCA, and MCA with a focus on modern skills like AI, Machine Learning, and Cyber Security.\nLaw & Management: Includes 5-year integrated BA/BBA LLB, BBA, and MBA programs.\nMedical & Health Sciences: Offers Physiotherapy (BPT), Pharmacy (B.Pharm), and BNYS.\nSelection Criteria: Admission is primarily based on merit and entrance exams like CUET, JEE, or the university's own JUEE. \nJagannath University, Jaipur\nJagannath University, Jaipur\n +6 Rankings & Recognition (Current)\nAgriculture: Ranked #6 in India in the Outlook-ICARE rankings for 2026.\nRegional Status: Ranked 9th among private universities in the North Zone.\nEducation: Positioned at #164 nationally and 11th in Rajasthan for 2025. \nCampus Life & Placements\nInfrastructure: The campus features well-maintained modern classrooms, laboratories, and a library. There are 4 separate hostels for boys and girls with 24-hour Wi-Fi, medical facilities, and electricity backup.\nPlacements: The Corporate Resource Management Centre (CRMC) facilitates recruitment drives.\nHighest Package: Reported up to ₹12 LPA.\nAverage Package: Approximately ₹4 LPA.\nTop Recruiters: Include HDFC Bank, Genpact, Infosys, Wipro, and TCS.\nEnvironment: Students frequently praise the green, eco-friendly campus and the supportive, qualified faculty. \nAre you looking for specific fee structures or eligibility details for a particular course at Jagannath University?\nJagannath University Jaipur (Chaksu Campus) - JU University\nJagannath University Jaipur (JU Chaksu Jaipur) is ranked among the best universities in Jaipur and is a top university in Rajastha...\nJagannath University, Jaipur\nNAAC accredited University in Jaipur, Rajasthan. Jagan Nath University, Jaipur has been established by an Act of the Rajasthan Sta...\nJagannath University, Jaipur",
+                "establishedDate": "2008-03-28T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "AACSB",
+                    "WASC"
+                ],
+                "studentCount": 6245,
+                "website": "https://www.jagannathuniversity.org/",
+                "contactEmail": "user@gmail.com",
+                "emailDomain": "gmail.com",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "7649780555",
+                "features": [
+                    "Diverse Programs",
+                    "Research Excellence"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Sports Facilities",
+                    "Innovation Labs"
+                ],
+                "rankings": [
+                    "#3 National Universities",
+                    "#1 Most Innovative"
+                ],
+                "photos": [
+                    "college/7215fefa3f58f92a9eec8b71d66544.png",
+                    "college/9cf57b06b00fc76f4175a86e581589.jpeg"
+                ],
+                "status": "Active",
+                "profileCompleted": 83,
+                "createdAt": "2026-03-16T20:18:03.305Z",
+                "updatedAt": "2026-04-12T19:08:29.323Z",
+                "__v": 0,
+                "location": {
+                    "coordinates": [
+                        75.9161,
+                        26.67146
+                    ],
+                    "formattedAddress": "Kotkhavda Bypass & NH-12, Chaksu 303901, India",
+                    "city": "Chaksu",
+                    "type": "Point"
+                },
+                "email": "gashrf881@gmail.com",
+                "phone": "7685076232",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "BMS (Bachelor of Management Studies)",
+                    "B.Voc (Bachelor of Vocational Studies)",
+                    "BDS (Bachelor of Dental Surgery)",
+                    "D.Pharm (Diploma in Pharmacy)",
+                    "MD (Doctor of Medicine)"
+                ]
+            },
+            {
+                "_id": "new_college_id_4",
+                "user": "new_user_id_4",
+                "name": "Birla Institute of Technology and Science",
+                "logo": "college/59d238440d15f3f4e103692f395c9d.png",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/fc221f0dcc480522c7c59a3c1a6ddc.jpeg",
+                "description": "Admissions for the 2026-27 session are currently open for various undergraduate and postgraduate courses. \nJagannath University, Jaipur\nJagannath University, Jaipur\nAgriculture: Highly regarded for its B.Sc. (Hons.) Agriculture program, which is ICAR accredited.\nEngineering & IT: Offers B.Tech, BCA, and MCA with a focus on modern skills like AI, Machine Learning, and Cyber Security.\nLaw & Management: Includes 5-year integrated BA/BBA LLB, BBA, and MBA programs.\nMedical & Health Sciences: Offers Physiotherapy (BPT), Pharmacy (B.Pharm), and BNYS.\nSelection Criteria: Admission is primarily based on merit and entrance exams like CUET, JEE, or the university's own JUEE. \nJagannath University, Jaipur\nJagannath University, Jaipur\n +6 Rankings & Recognition (Current)\nAgriculture: Ranked #6 in India in the Outlook-ICARE rankings for 2026.\nRegional Status: Ranked 9th among private universities in the North Zone.\nEducation: Positioned at #164 nationally and 11th in Rajasthan for 2025. \nCampus Life & Placements\nInfrastructure: The campus features well-maintained modern classrooms, laboratories, and a library. There are 4 separate hostels for boys and girls with 24-hour Wi-Fi, medical facilities, and electricity backup.\nPlacements: The Corporate Resource Management Centre (CRMC) facilitates recruitment drives.\nHighest Package: Reported up to ₹12 LPA.\nAverage Package: Approximately ₹4 LPA.\nTop Recruiters: Include HDFC Bank, Genpact, Infosys, Wipro, and TCS.\nEnvironment: Students frequently praise the green, eco-friendly campus and the supportive, qualified faculty. \nAre you looking for specific fee structures or eligibility details for a particular course at Jagannath University?\nJagannath University Jaipur (Chaksu Campus) - JU University\nJagannath University Jaipur (JU Chaksu Jaipur) is ranked among the best universities in Jaipur and is a top university in Rajastha...\nJagannath University, Jaipur\nNAAC accredited University in Jaipur, Rajasthan. Jagan Nath University, Jaipur has been established by an Act of the Rajasthan Sta...\nJagannath University, Jaipur",
+                "establishedDate": "2008-03-28T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "AACSB",
+                    "WASC"
+                ],
+                "studentCount": 6245,
+                "website": "https://www.jagannathuniversity.org/",
+                "contactEmail": "user@gmail.com",
+                "emailDomain": "gmail.com",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "7649780555",
+                "features": [
+                    "Diverse Programs",
+                    "Research Excellence"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Sports Facilities",
+                    "Innovation Labs"
+                ],
+                "rankings": [
+                    "#3 National Universities",
+                    "#1 Most Innovative"
+                ],
+                "photos": [
+                    "college/7215fefa3f58f92a9eec8b71d66544.png",
+                    "college/9cf57b06b00fc76f4175a86e581589.jpeg"
+                ],
+                "status": "Active",
+                "profileCompleted": 83,
+                "createdAt": "2026-03-16T20:18:03.305Z",
+                "updatedAt": "2026-04-12T19:08:29.323Z",
+                "__v": 0,
+                "location": {
+                    "coordinates": [
+                        75.9161,
+                        26.67146
+                    ],
+                    "formattedAddress": "Kotkhavda Bypass & NH-12, Chaksu 303901, India",
+                    "city": "Chaksu",
+                    "type": "Point"
+                },
+                "email": "gashrf881@gmail.com",
+                "phone": "7685076232",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "Integrated M.Sc (Integrated Master of Science)",
+                    "Integrated MBA (Integrated Master of Business Administration)",
+                    "B.Des (Bachelor of Design)",
+                    "BUMS (Bachelor of Unani Medicine and Surgery)",
+                    "MD (Doctor of Medicine)",
+                    "B.Tech (Bachelor of Technology)",
+                    "B.Ed (Bachelor of Education)"
+                ]
+            },
+            {
+                "_id": "new_college_id_5",
+                "user": "new_user_id_5",
+                "name": "Lovely Professional University",
+                "logo": "college/59d238440d15f3f4e103692f395c9d.png",
+                "thumbnail": "https://college-campus.s3.ap-south-1.amazonaws.com/college/28fb8fd2e3fe5d37b1d1d7e78e5b59.png",
+                "description": "Admissions for the 2026-27 session are currently open for various undergraduate and postgraduate courses. \nJagannath University, Jaipur\nJagannath University, Jaipur\nAgriculture: Highly regarded for its B.Sc. (Hons.) Agriculture program, which is ICAR accredited.\nEngineering & IT: Offers B.Tech, BCA, and MCA with a focus on modern skills like AI, Machine Learning, and Cyber Security.\nLaw & Management: Includes 5-year integrated BA/BBA LLB, BBA, and MBA programs.\nMedical & Health Sciences: Offers Physiotherapy (BPT), Pharmacy (B.Pharm), and BNYS.\nSelection Criteria: Admission is primarily based on merit and entrance exams like CUET, JEE, or the university's own JUEE. \nJagannath University, Jaipur\nJagannath University, Jaipur\n +6 Rankings & Recognition (Current)\nAgriculture: Ranked #6 in India in the Outlook-ICARE rankings for 2026.\nRegional Status: Ranked 9th among private universities in the North Zone.\nEducation: Positioned at #164 nationally and 11th in Rajasthan for 2025. \nCampus Life & Placements\nInfrastructure: The campus features well-maintained modern classrooms, laboratories, and a library. There are 4 separate hostels for boys and girls with 24-hour Wi-Fi, medical facilities, and electricity backup.\nPlacements: The Corporate Resource Management Centre (CRMC) facilitates recruitment drives.\nHighest Package: Reported up to ₹12 LPA.\nAverage Package: Approximately ₹4 LPA.\nTop Recruiters: Include HDFC Bank, Genpact, Infosys, Wipro, and TCS.\nEnvironment: Students frequently praise the green, eco-friendly campus and the supportive, qualified faculty. \nAre you looking for specific fee structures or eligibility details for a particular course at Jagannath University?\nJagannath University Jaipur (Chaksu Campus) - JU University\nJagannath University Jaipur (JU Chaksu Jaipur) is ranked among the best universities in Jaipur and is a top university in Rajastha...\nJagannath University, Jaipur\nNAAC accredited University in Jaipur, Rajasthan. Jagan Nath University, Jaipur has been established by an Act of the Rajasthan Sta...\nJagannath University, Jaipur",
+                "establishedDate": "2008-03-28T00:00:00.000Z",
+                "type": "Private",
+                "accreditation": [
+                    "AACSB",
+                    "WASC"
+                ],
+                "studentCount": 6245,
+                "website": "https://www.jagannathuniversity.org/",
+                "contactEmail": "user@gmail.com",
+                "emailDomain": "gmail.com",
+                "contactPhoneCountryCode": "+91",
+                "contactPhone": "7649780555",
+                "features": [
+                    "Diverse Programs",
+                    "Research Excellence"
+                ],
+                "facilities": [
+                    "Research Libraries",
+                    "Sports Facilities",
+                    "Innovation Labs"
+                ],
+                "rankings": [
+                    "#3 National Universities",
+                    "#1 Most Innovative"
+                ],
+                "photos": [
+                    "college/7215fefa3f58f92a9eec8b71d66544.png",
+                    "college/9cf57b06b00fc76f4175a86e581589.jpeg"
+                ],
+                "status": "Active",
+                "profileCompleted": 83,
+                "createdAt": "2026-03-16T20:18:03.305Z",
+                "updatedAt": "2026-04-12T19:08:29.323Z",
+                "__v": 0,
+                "location": {
+                    "coordinates": [
+                        75.9161,
+                        26.67146
+                    ],
+                    "formattedAddress": "Kotkhavda Bypass & NH-12, Chaksu 303901, India",
+                    "city": "Chaksu",
+                    "type": "Point"
+                },
+                "email": "gashrf881@gmail.com",
+                "phone": "7685076232",
+                "countryCode": "+91",
+                "accountType": "College",
+                "averageReview": 0,
+                "isFavorite": false,
+                "courses": [
+                    "BHM (Bachelor of Hotel Management)",
+                    "Integrated LL.B (Integrated Bachelor of Laws)",
+                    "BA LL.B. (Bachelor of Arts, Bachelor of Laws)",
+                    "PGDCR (Post Graduate Diploma in Clinical Research)",
+                    "BTS (Bachelor of Tourism Studies)",
+                    "BCA (Bachelor of Computer Applications)",
+                    "M.Sc (Master of Science)"
+                ]
+            }
+        ]
+    },
+    "message": ""
+}

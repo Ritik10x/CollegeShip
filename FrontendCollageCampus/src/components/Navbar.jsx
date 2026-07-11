@@ -1,0 +1,383 @@
+import { useEffect, useRef, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import {
+  FaUserCircle,
+  FaBars,
+  FaTimes,
+  FaChevronDown,
+  FaSignOutAlt,
+  FaTachometerAlt,
+  FaUserShield,
+} from "react-icons/fa";
+import logo from "../assets/logo.png";
+import { openAuthModal } from "./AuthModal";
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
+import { useUser } from "../context/UserContext";
+export default function Navbar({ suppressMobileNav = false }) {
+  const navigate = useNavigate();
+  const { user, isAdmin } = useUser();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const profileMenuRef = useRef(null);
+  useEffect(() => {
+    const closeOnOutsideClick = (event) => {
+      if (
+        profileMenuRef.current &&
+        !profileMenuRef.current.contains(event.target)
+      ) {
+        setProfileOpen(false);
+      }
+    };
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setProfileOpen(false);
+    };
+    document.addEventListener("mousedown", closeOnOutsideClick);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("mousedown", closeOnOutsideClick);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, []);
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setMobileOpen(false);
+      setProfileOpen(false);
+      /* Replace the current entry with home and force a full page reload to clear history */ navigate(
+        "/",
+        { replace: true },
+      );
+      /* Using window.location.replace ensures the page reloads and stale protected-route history redirects home. */ window.location.replace(
+        "/",
+      );
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+  };
+  const toggleMobile = () => setMobileOpen(!mobileOpen);
+  return (
+    <header className="w-full glass-nav fixed top-0 z-50 transition-all duration-150 ease-in-out">
+      {" "}
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4">
+        {" "}
+        <Link
+          to="/"
+          className="flex items-center gap-2 sm:gap-3 hover:opacity-90 transition-all duration-150 ease-in-out group"
+        >
+          {" "}
+          <img
+            src={logo}
+            alt="CollegeShip Logo"
+            className="h-10 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:-translate-y-[1px] active:scale-[0.97]"
+          />{" "}
+          <div>
+            {" "}
+            <h1 className="font-black text-lg sm:text-2xl text-[#0D0D12] tracking-tight leading-none">
+              CollegeShip
+            </h1>{" "}
+            <p className="text-[10px] sm:text-[10px] font-bold text-accent uppercase tracking-[0.15em] sm:tracking-[0.2em] mt-0.5 sm:mt-1">
+              Excellence in Education
+            </p>{" "}
+          </div>{" "}
+        </Link>{" "}
+        {/* Desktop Nav Links (Hidden on mobile) */}{" "}
+        <nav className="hidden lg:flex items-center gap-8 mr-auto ml-12">
+          {" "}
+          <Link
+            to="/"
+            className="text-text-muted hover:text-accent transition-colors duration-200 font-bold text-sm transition-colors py-2"
+          >
+            {" "}
+            Home{" "}
+          </Link>{" "}
+          <Link
+            to="/explore"
+            className="text-text-muted hover:text-accent transition-colors duration-200 font-bold text-sm transition-colors py-2"
+          >
+            {" "}
+            Explore Colleges{" "}
+          </Link>{" "}
+        </nav>{" "}
+        {/* Desktop Auth/User menu (Hidden on mobile) */}{" "}
+        <div className="hidden lg:flex items-center gap-3">
+          {" "}
+          {user ? (
+            <div className="relative" ref={profileMenuRef}>
+              {" "}
+              <button
+                type="button"
+                onClick={() => setProfileOpen((open) => !open)}
+                className={`flex min-w-0 lg:min-w-[190px] items-center gap-3 rounded-card glass-chip px-3 py-2 text-left transition-all duration-200 ${profileOpen ? "border-accent/60 shadow-glass-lg" : "border-brand-border shadow-card hover:border-primary transition-colors duration-200/30 hover:shadow-card"}`}
+                aria-haspopup="menu"
+                aria-expanded={profileOpen}
+              >
+                {" "}
+                {user.photoURL ? (
+                  <img
+                    src={user.photoURL}
+                    alt={`${user.displayName || "User"} profile`}
+                    referrerPolicy="no-referrer"
+                    className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-card ring-1 ring-gray-200"
+                  />
+                ) : (
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
+                    {" "}
+                    {user.displayName
+                      ? user.displayName
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")
+                          .toUpperCase()
+                          .slice(0, 2)
+                      : user.email?.charAt(0).toUpperCase() || "U"}{" "}
+                  </div>
+                )}{" "}
+                <span className="min-w-0 flex-1">
+                  {" "}
+                  <span className="block truncate text-sm font-extrabold text-[#0D0D12]">
+                    {user.displayName || user.email?.split("@")[0] || "Student"}
+                  </span>{" "}
+                  <span className="block text-[9px] font-bold uppercase tracking-[0.15em] text-text-muted">
+                    {isAdmin ? "Administrator" : "Student account"}
+                  </span>{" "}
+                </span>{" "}
+                <FaChevronDown
+                  className={`shrink-0 text-xs text-text-muted transition-transform ${profileOpen ? "rotate-180 text-primary" : ""}`}
+                />{" "}
+              </button>{" "}
+              <div
+                role="menu"
+                className={`absolute right-0 top-[calc(100%+0.65rem)] w-64 origin-top-right glass-dropdown p-2 transition-all duration-200 ${profileOpen ? "visible translate-y-0 scale-100 opacity-100" : "invisible -translate-y-2 scale-95 opacity-0"}`}
+              >
+                {" "}
+                <div className="border-b border-border-subtle px-3 py-3">
+                  {" "}
+                  <p className="truncate text-sm font-extrabold text-[#0D0D12]">
+                    {user.displayName || "Student"}
+                  </p>{" "}
+                  <p className="mt-0.5 truncate text-xs text-text-muted">
+                    {user.email}
+                  </p>{" "}
+                </div>{" "}
+                <div className="py-2">
+                  {" "}
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setProfileOpen(false)}
+                    role="menuitem"
+                    className="flex items-center gap-3 rounded-card px-3 py-2.5 text-sm font-bold text-text-main transition-colors hover:bg-brand-bg/80 transition-colors duration-200 hover:text-accent transition-colors duration-200"
+                  >
+                    {" "}
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-bg text-primary">
+                      <FaTachometerAlt />
+                    </span>{" "}
+                    Dashboard{" "}
+                  </Link>{" "}
+                  {isAdmin && (
+                    <Link
+                      to="/admin/dashboard"
+                      onClick={() => setProfileOpen(false)}
+                      role="menuitem"
+                      className="flex items-center gap-3 rounded-card px-3 py-2.5 text-sm font-bold text-text-main transition-colors hover:bg-[#f8f1e4] hover:text-[#8A682D]"
+                    >
+                      {" "}
+                      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#f8f1e4] text-accent">
+                        <FaUserShield />
+                      </span>{" "}
+                      Admin Panel{" "}
+                    </Link>
+                  )}{" "}
+                  <button
+                    onClick={handleLogout}
+                    role="menuitem"
+                    className="mt-1 flex w-full items-center gap-3 border-t border-border-subtle rounded-card px-3 py-2.5 text-sm font-bold text-[#B3261E] transition-colors hover:bg-[#B3261E]/10"
+                  >
+                    {" "}
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-50 text-[#B3261E]">
+                      <FaSignOutAlt />
+                    </span>{" "}
+                    Logout{" "}
+                  </button>{" "}
+                </div>{" "}
+              </div>{" "}
+            </div>
+          ) : (
+            <>
+              {" "}
+              <button
+                onClick={() => openAuthModal("login")}
+                className="px-6 py-2.5 rounded-card glass-chip border-2 border-brand-bg text-primary font-semibold hover:bg-background hover:border-primary transition-colors duration-200 transition-all duration-150 ease-in-out shadow-card hover:shadow-card hover:-translate-y-[1px] active:scale-[0.97] text-sm flex items-center gap-2"
+              >
+                {" "}
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  {" "}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                  />{" "}
+                </svg>{" "}
+                Login{" "}
+              </button>{" "}
+              <button
+                onClick={() => openAuthModal("signup")}
+                className="px-6 py-2.5 rounded-card bg-primary text-white font-semibold hover:bg-accent hover: transition-all duration-150 ease-in-out shadow-card hover:shadow-card hover:-translate-y-[1px] active:scale-[0.97] text-sm flex items-center gap-2"
+              >
+                {" "}
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  {" "}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                  />{" "}
+                </svg>{" "}
+                Signup{" "}
+              </button>{" "}
+            </>
+          )}{" "}
+        </div>{" "}
+        {/* Mobile menu button */}{" "}
+        {!suppressMobileNav && (
+          <button
+            className="lg:hidden text-text-muted hover:text-accent transition-colors duration-200 p-2.5 min-w-[44px] min-h-[44px] rounded-card hover:bg-brand-bg/80 transition-colors duration-200 transition-all"
+            onClick={toggleMobile}
+            aria-label="Toggle navigation"
+          >
+            {" "}
+            {mobileOpen ? <FaTimes size={24} /> : <FaBars size={24} />}{" "}
+          </button>
+        )}{" "}
+      </div>{" "}
+      {!suppressMobileNav && mobileOpen && (
+        <div
+          className="fixed inset-0 top-[65px] sm:top-[77px] glass-overlay lg:hidden z-40 transition-all duration-150 ease-in-out"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}{" "}
+      {!suppressMobileNav && (
+        <div
+          className={`fixed top-[65px] sm:top-[77px] left-0 w-full glass-strong border-b border-white/60 shadow-glass-lg transition-all duration-150 ease-in-out ease-out transform lg:hidden z-50 overflow-hidden ${mobileOpen ? "translate-y-0 opacity-100 max-h-[80vh] overflow-y-auto pointer-events-auto" : "-translate-y-4 opacity-0 max-h-0 pointer-events-none"}`}
+        >
+          {" "}
+          <div className="flex flex-col p-6 gap-5">
+            {" "}
+            <Link
+              to="/"
+              onClick={() => setMobileOpen(false)}
+              className="text-text-main hover:text-accent transition-colors duration-200 font-bold text-base transition-colors py-2.5 border-b border-gray-50 flex items-center justify-between"
+            >
+              {" "}
+              <span>Home</span>{" "}
+              <span className="text-[#5B5B63]/60 text-xs">→</span>{" "}
+            </Link>{" "}
+            <Link
+              to="/explore"
+              onClick={() => setMobileOpen(false)}
+              className="text-text-main hover:text-accent transition-colors duration-200 font-bold text-base transition-colors py-2.5 border-b border-gray-50 flex items-center justify-between"
+            >
+              {" "}
+              <span>Explore Colleges</span>{" "}
+              <span className="text-[#5B5B63]/60 text-xs">→</span>{" "}
+            </Link>{" "}
+            {user ? (
+              <div className="flex flex-col gap-4 mt-2">
+                {" "}
+                <div className="flex items-center gap-3 py-2 bg-brand-bg rounded-card px-4 border border-border-subtle">
+                  {" "}
+                  {user.photoURL ? (
+                    <img
+                      src={user.photoURL}
+                      alt={`${user.displayName || "User"} profile`}
+                      referrerPolicy="no-referrer"
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                  ) : (
+                    <FaUserCircle className="text-text-muted text-3xl" />
+                  )}{" "}
+                  <div className="overflow-hidden">
+                    {" "}
+                    <span className="block text-sm font-bold text-[#0D0D12] truncate">
+                      {" "}
+                      {user.displayName ||
+                        user.email?.split("@")[0] ||
+                        "Student"}{" "}
+                    </span>{" "}
+                    <span className="block text-[10px] text-text-muted truncate">
+                      {user.email}
+                    </span>{" "}
+                  </div>{" "}
+                </div>{" "}
+                <div className="flex flex-col gap-3">
+                  {" "}
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setMobileOpen(false)}
+                    className="w-full text-center py-3 rounded-card bg-primary text-white font-bold hover:bg-[#0D0D12] transition-colors duration-200 transition-colors shadow-card shadow-brand-bg"
+                  >
+                    {" "}
+                    Go to Dashboard{" "}
+                  </Link>{" "}
+                  {isAdmin && (
+                    <Link
+                      to="/admin/dashboard"
+                      onClick={() => setMobileOpen(false)}
+                      className="w-full text-center py-3 rounded-card bg-accent text-white font-bold hover:bg-accent transition-colors shadow-card shadow-[#f8eeda]"
+                    >
+                      {" "}
+                      Admin Panel{" "}
+                    </Link>
+                  )}{" "}
+                  <button
+                    onClick={handleLogout}
+                    className="w-full py-3 rounded-card bg-red-50 text-[#B3261E] font-bold hover:bg-error transition-colors"
+                  >
+                    {" "}
+                    Logout{" "}
+                  </button>{" "}
+                </div>{" "}
+              </div>
+            ) : (
+              <div className="flex flex-col gap-3 mt-4">
+                {" "}
+                <button
+                  onClick={() => {
+                    setMobileOpen(false);
+                    openAuthModal("login");
+                  }}
+                  className="w-full py-3 rounded-card bg-brand-bg text-primary font-bold hover:bg-brand-bg/80 transition-colors duration-200 transition-colors"
+                >
+                  {" "}
+                  Login{" "}
+                </button>{" "}
+                <button
+                  onClick={() => {
+                    setMobileOpen(false);
+                    openAuthModal("signup");
+                  }}
+                  className="w-full py-3 rounded-card bg-primary text-white font-bold shadow-card shadow-brand-bg hover:shadow-card transition-all"
+                >
+                  {" "}
+                  Signup{" "}
+                </button>{" "}
+              </div>
+            )}{" "}
+          </div>{" "}
+        </div>
+      )}{" "}
+    </header>
+  );
+}
