@@ -37,6 +37,13 @@
           }
         },
         {
+          "source": "/college/**",
+          "function": {
+            "functionId": "collegeSeo",
+            "region": "asia-south1"
+          }
+        },
+        {
           "source": "**",
           "destination": "/index.html"
         }

@@ -193,11 +193,11 @@ export default function Explore() {
                     </div>
                   </div>
                   {isCourseDropdownOpen && (
-                    <div className="absolute z-[100] w-full mt-1.5 glass-card overflow-hidden">
+                    <div className="absolute z-[100] w-full mt-1.5 bg-white rounded-card shadow-card overflow-hidden border border-border-subtle">
                       <div className="max-h-[320px] overflow-y-auto custom-scrollbar">
-                        <div className={`px-5 py-3 text-sm cursor-pointer transition-colors hover:bg-brand-bg/80 transition-colors duration-200 ${selectedCourse === "" ? 'text-primary bg-brand-bg font-semibold' : 'text-text-muted'}`} onClick={() => { setSelectedCourse(""); setIsCourseDropdownOpen(false); }}>All Courses</div>
+                        <div className={`px-5 py-3 text-sm cursor-pointer transition-colors hover:bg-gray-100 transition-colors duration-200 ${selectedCourse === "" ? 'text-primary bg-gray-50 font-semibold' : 'text-text-muted'}`} onClick={() => { setSelectedCourse(""); setIsCourseDropdownOpen(false); }}>All Courses</div>
                         {dynamicCourses.map((course, idx) => (
-                          <div key={idx} className={`px-5 py-3.5 text-[13px] border-b border-gray-50 last:border-0 cursor-pointer transition-colors hover:bg-brand-bg/80 transition-colors duration-200 ${selectedCourse === course ? 'text-primary bg-brand-bg font-semibold' : 'text-[#0D0D12]'}`} onClick={() => { setSelectedCourse(course); setIsCourseDropdownOpen(false); }}>{course}</div>
+                          <div key={idx} className={`px-5 py-3.5 text-[13px] border-b border-gray-100 last:border-0 cursor-pointer transition-colors hover:bg-gray-100 transition-colors duration-200 ${selectedCourse === course ? 'text-primary bg-gray-50 font-semibold' : 'text-[#0D0D12]'}`} onClick={() => { setSelectedCourse(course); setIsCourseDropdownOpen(false); }}>{course}</div>
                         ))}
                       </div>
                     </div>

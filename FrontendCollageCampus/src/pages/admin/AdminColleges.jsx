@@ -152,6 +152,10 @@ export default function AdminColleges() {
       contactEmail: "",
       contactPhone: "",
       contactPhoneAlt: "",
+      socialInstagram: "",
+      socialFacebook: "",
+      socialX: "",
+      socialYoutube: "",
       location: {
         city: "",
         displayAddress: "",
@@ -243,6 +247,10 @@ export default function AdminColleges() {
       contactEmail: college.contactEmail || "",
       contactPhone: extractIndiaMobileNumber(college.contactPhone || ""),
       contactPhoneAlt: extractIndiaMobileNumber(college.contactPhoneAlt || ""),
+      socialInstagram: college.socialInstagram || "",
+      socialFacebook: college.socialFacebook || "",
+      socialX: college.socialX || "",
+      socialYoutube: college.socialYoutube || "",
       location: {
         city: college.location?.city || "",
         displayAddress:
@@ -653,6 +661,10 @@ export default function AdminColleges() {
         contactPhoneAlt: formData.contactPhoneAlt
           ? formatIndiaPhoneStorage(formData.contactPhoneAlt)
           : "",
+        socialInstagram: formData.socialInstagram.trim(),
+        socialFacebook: formData.socialFacebook.trim(),
+        socialX: formData.socialX.trim(),
+        socialYoutube: formData.socialYoutube.trim(),
         location: {
           city: formData.location.city.trim(),
           displayAddress: formData.location.displayAddress.trim(),
@@ -1330,6 +1342,56 @@ export default function AdminColleges() {
                   </div>{" "}
                 </div>{" "}
               </div>{" "}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+                <div>
+                  <label className="block text-xs font-bold text-text-main mb-1.5">
+                    Instagram Profile
+                  </label>
+                  <input
+                    type="url"
+                    className="w-full rounded-card border border-brand-border px-4 py-2.5 text-sm focus:outline-none focus:border-primary"
+                    value={formData.socialInstagram}
+                    onChange={(e) => setFormData({ ...formData, socialInstagram: e.target.value })}
+                    placeholder="https://instagram.com/..."
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-text-main mb-1.5">
+                    Facebook Profile
+                  </label>
+                  <input
+                    type="url"
+                    className="w-full rounded-card border border-brand-border px-4 py-2.5 text-sm focus:outline-none focus:border-primary"
+                    value={formData.socialFacebook}
+                    onChange={(e) => setFormData({ ...formData, socialFacebook: e.target.value })}
+                    placeholder="https://facebook.com/..."
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-text-main mb-1.5">
+                    X (Twitter) Profile
+                  </label>
+                  <input
+                    type="url"
+                    className="w-full rounded-card border border-brand-border px-4 py-2.5 text-sm focus:outline-none focus:border-primary"
+                    value={formData.socialX}
+                    onChange={(e) => setFormData({ ...formData, socialX: e.target.value })}
+                    placeholder="https://x.com/..."
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-text-main mb-1.5">
+                    YouTube Channel
+                  </label>
+                  <input
+                    type="url"
+                    className="w-full rounded-card border border-brand-border px-4 py-2.5 text-sm focus:outline-none focus:border-primary"
+                    value={formData.socialYoutube}
+                    onChange={(e) => setFormData({ ...formData, socialYoutube: e.target.value })}
+                    placeholder="https://youtube.com/..."
+                  />
+                </div>
+              </div>
             </div>{" "}
             {/* SECTION 4: Location */}{" "}
             <div>

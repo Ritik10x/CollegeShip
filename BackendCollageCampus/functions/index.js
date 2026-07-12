@@ -276,6 +276,83 @@ app.put("/api/admin/applications/:id/status", requireAdmin, async (req, res) => 
   }
 });
 
+let cachedIndexHtml = null;
+
+exports.collegeSeo = onRequest(
+  { region: "asia-south1" },
+  async (req, res) => {
+    try {
+      // 1. Extract collegeId from URL
+      const segments = req.path.split('/').filter(Boolean);
+      const collegeId = segments[segments.length - 1];
+
+      // 2. Fetch HTML if not cached
+      if (!cachedIndexHtml) {
+        // Fetch the production index.html from hosting
+        const response = await fetch("https://collegeship.in/index.html");
+        if (response.ok) {
+          cachedIndexHtml = await response.text();
+        } else {
+          cachedIndexHtml = `<!doctype html><html lang="en-IN"><head><title>CollegeShip</title></head><body><div id="root"></div><script type="module" src="/src/main.jsx"></script></body></html>`;
+        }
+      }
+
+      let html = cachedIndexHtml;
+
+      // 3. Fetch College Data
+      if (collegeId && collegeId !== 'college') {
+        const docRef = admin.firestore().collection("colleges").doc(collegeId);
+        const docSnap = await docRef.get();
+        
+        if (docSnap.exists) {
+          const college = docSnap.data();
+          const title = `${college.name || 'College'} | CollegeShip`;
+          const description = college.description 
+            ? college.description.substring(0, 160).replace(/"/g, '&quot;')
+            : `Explore ${college.name || 'this college'} including courses, fees, rankings, placements, admissions, and reviews.`;
+          
+          let imageUrl = "https://collegeship.in/og-image.png";
+          if (college.thumbnail) {
+            imageUrl = college.thumbnail.startsWith('http') ? college.thumbnail : `https://collegeship.in${college.thumbnail.startsWith('/') ? '' : '/'}${college.thumbnail}`;
+          } else if (college.logo) {
+            imageUrl = college.logo.startsWith('http') ? college.logo : `https://collegeship.in${college.logo.startsWith('/') ? '' : '/'}${college.logo}`;
+          }
+
+          const pageUrl = `https://collegeship.in/college/${collegeId}`;
+
+          // 4. Inject Dynamic Metadata
+          html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+          html = html.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i, `<meta name="description" content="${description}" />`);
+          html = html.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i, `<link rel="canonical" href="${pageUrl}" />`);
+          
+          html = html.replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:title" content="${title}" />`);
+          html = html.replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:description" content="${description}" />`);
+          html = html.replace(/<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:image" content="${imageUrl}" />`);
+          html = html.replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:url" content="${pageUrl}" />`);
+          
+          html = html.replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/i, `<meta name="twitter:title" content="${title}" />`);
+          html = html.replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/i, `<meta name="twitter:description" content="${description}" />`);
+          html = html.replace(/<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/i, `<meta name="twitter:image" content="${imageUrl}" />`);
+        } else {
+          // 404 Not Found
+          const title = "College Not Found | CollegeShip";
+          const description = "The requested college profile could not be found on CollegeShip.";
+          html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+          html = html.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i, `<meta name="description" content="${description}" />`);
+          html = html.replace(/<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/i, `<meta name="robots" content="noindex" />`);
+          res.status(404);
+        }
+      }
+
+      res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+      res.send(html);
+    } catch (error) {
+      console.error("Error in collegeSeo function:", error);
+      res.status(500).send(cachedIndexHtml || 'Error loading page');
+    }
+  }
+);
+
 exports.api = onRequest(
   {
     region: "asia-south1",
