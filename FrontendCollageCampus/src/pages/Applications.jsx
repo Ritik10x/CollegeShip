@@ -10,7 +10,7 @@ import {
   FaClock,
 } from "react-icons/fa";
 import { db, auth } from "../firebase";
-import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 export default function Applications() {
   const [applications, setApplications] = useState([]);
@@ -22,13 +22,13 @@ export default function Applications() {
       setLoading(false);
       return;
     }
-    const q = query(
-      collection(db, "applications"),
-      where("userId", "==", auth.currentUser.uid),
-    );
-    const unsub = onSnapshot(
-      q,
-      (snap) => {
+    const fetchApplications = async () => {
+      try {
+        const q = query(
+          collection(db, "applications"),
+          where("userId", "==", auth.currentUser.uid),
+        );
+        const snap = await getDocs(q);
         const apps = [];
         snap.forEach((d) => apps.push({ id: d.id, ...d.data() }));
         apps.sort((a, b) => {
@@ -38,13 +38,12 @@ export default function Applications() {
         });
         setApplications(apps);
         setLoading(false);
-      },
-      (err) => {
+      } catch (err) {
         console.error("Error fetching user applications:", err);
         setLoading(false);
-      },
-    );
-    return () => unsub();
+      }
+    };
+    fetchApplications();
   }, []);
   const filtered = applications.filter((app) => {
     const qStr = search.toLowerCase();

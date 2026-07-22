@@ -22,6 +22,20 @@ export default function Dashboard() {
         return;
       }
       try {
+        const cacheKey = `collegeship_apps_${user.uid}`;
+        const cacheTimeKey = `collegeship_apps_time_${user.uid}`;
+        const now = new Date().getTime();
+        const ttl = 5 * 60 * 1000; // 5 minutes
+
+        const cachedData = sessionStorage.getItem(cacheKey);
+        const cachedTime = sessionStorage.getItem(cacheTimeKey);
+
+        if (cachedData && cachedTime && now - parseInt(cachedTime, 10) < ttl) {
+          setApplications(JSON.parse(cachedData));
+          setLoadingApps(false);
+          return;
+        }
+
         const q = query(
           collection(db, "applications"),
           where("userId", "==", user.uid),
@@ -31,8 +45,12 @@ export default function Dashboard() {
         const apps = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
-          createdAt: doc.data().createdAt?.toDate(),
+          createdAt: doc.data().createdAt?.toDate ? doc.data().createdAt.toDate() : null,
         }));
+        
+        sessionStorage.setItem(cacheKey, JSON.stringify(apps));
+        sessionStorage.setItem(cacheTimeKey, now.toString());
+        
         setApplications(apps);
       } catch (err) {
         console.error("Error fetching applications:", err);

@@ -1,15 +1,17 @@
 const { onRequest } = require("firebase-functions/v2/https");
-const { defineSecret } = require("firebase-functions/params");
 const admin = require("firebase-admin");
 const express = require("express");
 const cors = require("cors");
 const collegesData = require("./colleges.json");
 const { sendApplicationConfirmationEmail, sendApplicationStatusEmail } = require("./utils/gmailMailer");
 
-const GMAIL_CLIENT_ID = defineSecret("GMAIL_CLIENT_ID");
-const GMAIL_CLIENT_SECRET = defineSecret("GMAIL_CLIENT_SECRET");
-const GMAIL_REFRESH_TOKEN = defineSecret("GMAIL_REFRESH_TOKEN");
-const GMAIL_USER = defineSecret("GMAIL_USER");
+// Gmail credentials are loaded from functions/.env (never commit that file to git)
+const getGmailCredentials = () => ({
+  clientId: (process.env.GMAIL_CLIENT_ID || "").trim(),
+  clientSecret: (process.env.GMAIL_CLIENT_SECRET || "").trim(),
+  refreshToken: (process.env.GMAIL_REFRESH_TOKEN || "").trim(),
+  user: (process.env.GMAIL_USER || "").trim(),
+});
 
 admin.initializeApp();
 
@@ -169,12 +171,7 @@ app.post("/api/applications/apply", authenticate, async (req, res) => {
 
     try {
       await sendApplicationConfirmationEmail(
-        {
-          clientId: GMAIL_CLIENT_ID.value().trim(),
-          clientSecret: GMAIL_CLIENT_SECRET.value().trim(),
-          refreshToken: GMAIL_REFRESH_TOKEN.value().trim(),
-          user: GMAIL_USER.value().trim(),
-        },
+        getGmailCredentials(),
         { userName, userEmail: verifiedEmail, course, universityName }
       );
       emailSent = true;
@@ -249,12 +246,7 @@ app.put("/api/admin/applications/:id/status", requireAdmin, async (req, res) => 
 
     try {
       await sendApplicationStatusEmail(
-        {
-          clientId: GMAIL_CLIENT_ID.value().trim(),
-          clientSecret: GMAIL_CLIENT_SECRET.value().trim(),
-          refreshToken: GMAIL_REFRESH_TOKEN.value().trim(),
-          user: GMAIL_USER.value().trim(),
-        },
+        getGmailCredentials(),
         applicationData,
         status
       );
@@ -356,7 +348,6 @@ exports.collegeSeo = onRequest(
 exports.api = onRequest(
   {
     region: "asia-south1",
-    secrets: [GMAIL_CLIENT_ID, GMAIL_CLIENT_SECRET, GMAIL_REFRESH_TOKEN, GMAIL_USER],
   },
   app
 );

@@ -7,7 +7,8 @@ function getGoogle() {
   return require("googleapis").google;
 }
 function buildOAuthClient(clientId, clientSecret, refreshToken) {
-  const oauth2Client = new getGoogle().auth.OAuth2(clientId, clientSecret);
+  const { google } = require("googleapis");
+  const oauth2Client = new google.auth.OAuth2(clientId, clientSecret);
   oauth2Client.setCredentials({ refresh_token: refreshToken });
   return oauth2Client;
 }

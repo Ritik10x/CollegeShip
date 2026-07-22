@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FaInstagram,
@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import logo from "../assets/logo.png";
-import { doc, onSnapshot } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import FooterContactDialog from "./FooterContactDialog";
 import {
@@ -44,17 +44,34 @@ export default function Footer() {
   const [contactDialog, setContactDialog] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(
-      doc(db, "siteSettings", "footer"),
-      (snap) => {
-        if (snap.exists()) {
-          setSettings({ ...defaultFooterSettings, ...snap.data() });
-        }
-      },
-      (error) => console.error("Error loading footer settings:", error),
-    );
+    const fetchFooterSettings = async () => {
+      try {
+        const cacheKey = "collegeship_footer_cache";
+        const cacheTimeKey = "collegeship_footer_cache_time";
+        const now = new Date().getTime();
+        const ttl = 24 * 60 * 60 * 1000; // 24 hours
+        
+        const cachedData = localStorage.getItem(cacheKey);
+        const cachedTime = localStorage.getItem(cacheTimeKey);
 
-    return () => unsubscribe();
+        if (cachedData && cachedTime && now - parseInt(cachedTime, 10) < ttl) {
+          setSettings(JSON.parse(cachedData));
+          return;
+        }
+
+        const snap = await getDoc(doc(db, "siteSettings", "footer"));
+        if (snap.exists()) {
+          const newData = { ...defaultFooterSettings, ...snap.data() };
+          setSettings(newData);
+          localStorage.setItem(cacheKey, JSON.stringify(newData));
+          localStorage.setItem(cacheTimeKey, now.toString());
+        }
+      } catch (error) {
+        console.error("Error loading footer settings:", error);
+      }
+    };
+
+    fetchFooterSettings();
   }, []);
 
   return (

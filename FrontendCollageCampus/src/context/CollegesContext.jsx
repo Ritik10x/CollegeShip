@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
 const CollegesContext = createContext(null);
@@ -19,26 +19,46 @@ export function CollegesProvider({ children }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(
-      collection(db, "colleges"),
-      (snapshot) => {
+    const fetchColleges = async () => {
+      try {
+        const cacheKey = "collegeship_colleges_cache";
+        const cacheTimeKey = "collegeship_colleges_cache_time";
+        const now = new Date().getTime();
+        const ttl = 30 * 60 * 1000; // 30 minutes
+        
+        const cachedData = localStorage.getItem(cacheKey);
+        const cachedTime = localStorage.getItem(cacheTimeKey);
+
+        if (cachedData && cachedTime && now - parseInt(cachedTime, 10) < ttl) {
+          const items = JSON.parse(cachedData);
+          cachedColleges = items;
+          setColleges(items);
+          setLoading(false);
+          setError(null);
+          return;
+        }
+
+        const querySnapshot = await getDocs(collection(db, "colleges"));
         const items = [];
-        snapshot.forEach((docSnap) => {
+        querySnapshot.forEach((docSnap) => {
           items.push({ _id: docSnap.id, ...docSnap.data() });
         });
+        
+        localStorage.setItem(cacheKey, JSON.stringify(items));
+        localStorage.setItem(cacheTimeKey, now.toString());
+
         cachedColleges = items;
         setColleges(items);
         setLoading(false);
         setError(null);
-      },
-      (err) => {
+      } catch (err) {
         console.error("[CollegesContext] Error loading colleges:", err);
         setError(err);
         setLoading(false);
-      },
-    );
+      }
+    };
 
-    return () => unsubscribe();
+    fetchColleges();
   }, []);
 
   const getCollegeById = useCallback(

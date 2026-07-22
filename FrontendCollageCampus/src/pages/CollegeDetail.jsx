@@ -26,7 +26,7 @@ import {
   collection,
   query,
   where,
-  onSnapshot,
+  getDocs,
   deleteDoc,
 } from "firebase/firestore";
 import { resolveAssetUrl } from "../lib/api";
@@ -86,22 +86,27 @@ export default function CollegeDetail() {
     if (cached) setCollege(cached);
   }, [id, getCollegeById]);
   useEffect(() => {
-    const q = query(
-      collection(db, "collegeReviews"),
-      where("collegeId", "==", id),
-    );
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const items = [];
-      snapshot.forEach((docSnap) =>
-        items.push({ id: docSnap.id, ...docSnap.data() }),
-      );
-      items.sort(
-        (a, b) =>
-          (b.createdAt?.toMillis() || 0) - (a.createdAt?.toMillis() || 0),
-      );
-      setReviews(items);
-    });
-    return () => unsubscribe();
+    const fetchReviews = async () => {
+      try {
+        const q = query(
+          collection(db, "collegeReviews"),
+          where("collegeId", "==", id),
+        );
+        const snapshot = await getDocs(q);
+        const items = [];
+        snapshot.forEach((docSnap) =>
+          items.push({ id: docSnap.id, ...docSnap.data() }),
+        );
+        items.sort(
+          (a, b) =>
+            (b.createdAt?.toMillis() || 0) - (a.createdAt?.toMillis() || 0),
+        );
+        setReviews(items);
+      } catch (err) {
+        console.error("Error fetching reviews:", err);
+      }
+    };
+    fetchReviews();
   }, [id]);
   if (loading) {
     return (

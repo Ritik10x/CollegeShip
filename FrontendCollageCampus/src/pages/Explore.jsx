@@ -18,6 +18,7 @@ import { getCollegeDisplayAddress } from "../lib/collegeMaps";
 import { FIELD_LIMITS } from "../lib/fieldLimits";
 import { useColleges } from "../context/CollegesContext";
 import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
+import { useDebounce } from "../hooks/useDebounce";
 import LazyImage from "../components/LazyImage";
 import PageSEO from "../components/PageSEO";
 import Reveal from "../components/Reveal";
@@ -63,6 +64,7 @@ export default function Explore() {
   const location = useLocation();
   const isDashboard = location.pathname.startsWith('/dashboard');
   const { favorites, toggleFavorite, openApplyModal } = useUser();
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -112,13 +114,14 @@ export default function Explore() {
   }, [colleges]);
 
   const filteredColleges = useMemo(() => colleges.filter(college => {
-    const matchesSearch = college.name.toLowerCase().includes(searchQuery.toLowerCase()) || (college.location?.city && college.location.city.toLowerCase().includes(searchQuery.toLowerCase())) || (college.courses && college.courses.some(course => {
+    const queryStr = debouncedSearchQuery.toLowerCase();
+    const matchesSearch = college.name.toLowerCase().includes(queryStr) || (college.location?.city && college.location.city.toLowerCase().includes(queryStr)) || (college.courses && college.courses.some(course => {
       const courseName = typeof course === 'string' ? course : (course?.name || "");
       const courseSpec = typeof course === 'string' ? "" : (course?.specialization || "");
-      const normQuery = searchQuery.toLowerCase().replace(/[^a-z0-9]/g, "");
+      const normQuery = queryStr.replace(/[^a-z0-9]/g, "");
       const normName = courseName.toLowerCase().replace(/[^a-z0-9]/g, "");
       const normSpec = courseSpec.toLowerCase().replace(/[^a-z0-9]/g, "");
-      return courseName.toLowerCase().includes(searchQuery.toLowerCase()) || courseSpec.toLowerCase().includes(searchQuery.toLowerCase()) || (normQuery && (normName.includes(normQuery) || normSpec.includes(normQuery)));
+      return courseName.toLowerCase().includes(queryStr) || courseSpec.toLowerCase().includes(queryStr) || (normQuery && (normName.includes(normQuery) || normSpec.includes(normQuery)));
     }));
     const matchesCourse = selectedCourse === "" || (college.courses && college.courses.some(course => {
       const courseName = typeof course === 'string' ? course : (course?.name || "");
@@ -127,9 +130,9 @@ export default function Explore() {
     const matchesLocation = selectedLocation === "" || college.location?.city?.toLowerCase().includes(selectedLocation.toLowerCase()) || getCollegeDisplayAddress(college.location).toLowerCase().includes(selectedLocation.toLowerCase());
     const matchesType = collegeType === "" || college.type === collegeType;
     return matchesSearch && matchesCourse && matchesLocation && matchesType;
-  }), [colleges, searchQuery, selectedCourse, selectedLocation, collegeType]);
+  }), [colleges, debouncedSearchQuery, selectedCourse, selectedLocation, collegeType]);
 
-  const filterKey = `${searchQuery}|${selectedCourse}|${selectedLocation}|${collegeType}`;
+  const filterKey = `${debouncedSearchQuery}|${selectedCourse}|${selectedLocation}|${collegeType}`;
   const { visibleCount, sentinelRef, hasMore } = useInfiniteScroll(
     filteredColleges.length,
     { pageSize: 12, resetKey: filterKey },

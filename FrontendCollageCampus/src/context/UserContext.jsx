@@ -1,4 +1,4 @@
-﻿import React, {
+import React, {
   createContext,
   useContext,
   useState,
@@ -7,7 +7,7 @@
 } from "react";
 import { auth, db } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { openAuthModal } from "../components/AuthModal";
 const UserContext = createContext();
 const getCollegeId = (college) => college?._id || college?.id || college?.collegeId;
@@ -41,12 +41,6 @@ export function UserProvider({ children }) {
   useEffect(() => {
     const unsubscribeAuth = onAuthStateChanged(auth, async (firebaseUser) => {
       console.log("[UserContext] Auth state changed:", firebaseUser?.uid);
-      /* Clean up previous favorites listener */ if (
-        unsubscribeFavoritesRef.current
-      ) {
-        unsubscribeFavoritesRef.current();
-        unsubscribeFavoritesRef.current = null;
-      }
       setUser(firebaseUser);
       if (firebaseUser && firebaseUser.email) {
         try {
@@ -61,31 +55,21 @@ export function UserProvider({ children }) {
             "userFavorites",
             firebaseUser.uid,
           );
-          const unsubscribeFavorites = onSnapshot(
-            userDocRef,
-            (docSnap) => {
-              console.log("[UserContext] Favorites snapshot received");
-              if (docSnap.exists()) {
-                const data = docSnap.data();
-                console.log("[UserContext] Favorites data:", data?.favorites);
-                setFavorites(
-                  Array.isArray(data?.favorites) ? data.favorites : [],
-                );
-              } else {
-                console.log(
-                  "[UserContext] No favorites document, setting empty array",
-                );
-                setFavorites([]);
-              }
-              setIsAuthLoading(false);
-            },
-            (error) => {
-              console.error("[UserContext] Favorites listener error:", error);
-              setFavorites([]);
-              setIsAuthLoading(false);
-            },
-          );
-          unsubscribeFavoritesRef.current = unsubscribeFavorites;
+          /* Fetch favorites once */
+          const docSnap = await getDoc(userDocRef);
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            console.log("[UserContext] Favorites data:", data?.favorites);
+            setFavorites(
+              Array.isArray(data?.favorites) ? data.favorites : [],
+            );
+          } else {
+            console.log(
+              "[UserContext] No favorites document, setting empty array",
+            );
+            setFavorites([]);
+          }
+          setIsAuthLoading(false);
         } catch (error) {
           console.error("[UserContext] Error setting up listeners:", error);
           setIsAdmin(false);
@@ -100,10 +84,7 @@ export function UserProvider({ children }) {
       }
     });
     return () => {
-      console.log("[UserContext] Cleanup: unsubscribing all listeners");
-      if (unsubscribeFavoritesRef.current) {
-        unsubscribeFavoritesRef.current();
-      }
+      console.log("[UserContext] Cleanup: unsubscribing auth listener");
       unsubscribeAuth();
     };
   }, []);
