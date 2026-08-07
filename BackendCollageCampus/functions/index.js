@@ -5,7 +5,7 @@ const cors = require("cors");
 const collegesData = require("./colleges.json");
 const { sendApplicationConfirmationEmail, sendApplicationStatusEmail } = require("./utils/gmailMailer");
 
-// Gmail credentials are loaded from functions/.env (never commit that file to git)
+// Gmail credentials from functions/.env at deploy time (Secret Manager not used).
 const getGmailCredentials = () => ({
   clientId: (process.env.GMAIL_CLIENT_ID || "").trim(),
   clientSecret: (process.env.GMAIL_CLIENT_SECRET || "").trim(),

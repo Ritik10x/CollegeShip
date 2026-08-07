@@ -1,4 +1,6 @@
-# CollegeShip — Deployment Status: ✅ DEPLOYED
+# CollegeShip — Deployment Status: ✅ DEPLOYED (Secret Manager cleanup done)
+
+See **[BILLING.md](BILLING.md)** for Secret Manager fix details and budget alert setup.
 
 ---
 

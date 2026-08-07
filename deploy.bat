@@ -3,6 +3,8 @@ setlocal
 set DEBUG=
 set FIREBASE_DEBUG_MODE=
 :: Deploy script for Windows
+:: NOTE: Gmail creds live in BackendCollageCampus\functions\.env (loaded automatically on functions deploy).
+:: Never use Secret Manager for Gmail — it caused billing. Use delete-gmail-secrets.ps1 only if old secrets return.
 
 :: Build frontend
 cd FrontendCollageCampus
