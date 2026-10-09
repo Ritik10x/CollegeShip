@@ -9,6 +9,7 @@ import {
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
+import HomeAbout from "./components/HomeAbout";
 import Features from "./components/Features";
 import Trajectory from "./components/Trajectory";
 import Colleges from "./components/Colleges";
@@ -24,6 +25,7 @@ import { analytics } from "./firebase";
 import { logEvent } from "firebase/analytics";
 
 const Explore = lazy(() => import("./pages/Explore"));
+const Blog = lazy(() => import("./pages/Blog"));
 const CollegeDetail = lazy(() => import("./pages/CollegeDetail"));
 const InfoPage = lazy(() => import("./pages/InfoPage"));
 const DashboardLayout = lazy(() => import("./components/DashboardLayout"));
@@ -51,6 +53,7 @@ function LandingPage() {
       <Navbar />
       <Hero />
       <Stats />
+      <HomeAbout />
       <Features />
       <Trajectory />
       <Colleges />
@@ -101,6 +104,16 @@ function App() {
               <>
                 <Navbar />
                 <Explore />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/blog"
+            element={
+              <>
+                <Navbar />
+                <Blog />
                 <Footer />
               </>
             }

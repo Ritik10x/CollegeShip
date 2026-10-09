@@ -169,8 +169,9 @@ export default function AdminColleges() {
       /* Comma-separated in form, array in DB */ facilities: "",
       /* Comma-separated in form, array in DB */ rankings: "",
       /* Comma-separated in form, array in DB */ highlights: "",
-      /* Comma-separated in form, array in DB (e.g. 100+ Acres Campus) */ brochure:
+      /* Comma-separated in form, array in DB (e.g. 100+ Acres Campus) */       brochure:
         "",
+      studyModes: { online: true, offline: true },
       courses: [] /* Array of structured course objects */,
     });
   /* Temporary course form state */ const [tempCourse, setTempCourse] =
@@ -297,6 +298,10 @@ export default function AdminColleges() {
         ? college.highlights.join(", ")
         : college.highlights || "",
       brochure: college.brochure || "",
+      studyModes: {
+        online: college.studyModes?.online !== false,
+        offline: college.studyModes?.offline !== false,
+      },
       courses: Array.isArray(college.courses) ? college.courses : [],
     });
     setShowForm(true);
@@ -343,6 +348,7 @@ export default function AdminColleges() {
       rankings: "",
       highlights: "",
       brochure: "",
+      studyModes: { online: true, offline: true },
       courses: [],
     });
     setShowForm(false);
@@ -608,6 +614,13 @@ export default function AdminColleges() {
       errors.push({ ref: mapAddressRef, label: "Map Search Address" });
     if (formData.courses.length === 0)
       errors.push({ ref: coursesRef, label: "Courses (at least 1 required)" });
+    if (
+      formData.studyModes?.online === false &&
+      formData.studyModes?.offline === false
+    ) {
+      setFeedbackMsg("Select at least one study mode for this college.");
+      return;
+    }
     if (errors.length > 0) {
       /* Scroll to the topmost invalid field */ const firstError = errors[0];
       if (firstError.ref?.current) {
@@ -687,6 +700,10 @@ export default function AdminColleges() {
         facilities: parseCommaSeparated(formData.facilities),
         rankings: parseCommaSeparated(formData.rankings),
         highlights: parseCommaSeparated(formData.highlights),
+        studyModes: {
+          online: formData.studyModes?.online !== false,
+          offline: formData.studyModes?.offline !== false,
+        },
       };
       checkLength(formattedData.accreditation, 20, "Accreditation");
       checkLength(formattedData.features, 20, "Key Features");
@@ -942,6 +959,50 @@ export default function AdminColleges() {
                     }
                   />{" "}
                 </div>{" "}
+              </div>{" "}
+              <div className="mt-6">
+                <label className="block text-xs font-bold text-text-muted mb-2">
+                  Study Modes Offered (Overview)
+                </label>
+                <div className="flex flex-wrap gap-4">
+                  <label className="inline-flex items-center gap-2 rounded-card border border-brand-border px-4 py-2.5 text-sm cursor-pointer hover:bg-brand-bg/50">
+                    <input
+                      type="checkbox"
+                      checked={formData.studyModes?.online !== false}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          studyModes: {
+                            ...formData.studyModes,
+                            online: e.target.checked,
+                          },
+                        })
+                      }
+                      className="accent-primary"
+                    />
+                    Online / Distance Learning
+                  </label>
+                  <label className="inline-flex items-center gap-2 rounded-card border border-brand-border px-4 py-2.5 text-sm cursor-pointer hover:bg-brand-bg/50">
+                    <input
+                      type="checkbox"
+                      checked={formData.studyModes?.offline !== false}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          studyModes: {
+                            ...formData.studyModes,
+                            offline: e.target.checked,
+                          },
+                        })
+                      }
+                      className="accent-primary"
+                    />
+                    Offline / Regular
+                  </label>
+                </div>
+                <p className="mt-2 text-[11px] text-text-muted">
+                  Shown on the college overview page and limits study mode options when students apply.
+                </p>
               </div>{" "}
             </div>{" "}
             {/* SECTION 2: Description and Media */}{" "}

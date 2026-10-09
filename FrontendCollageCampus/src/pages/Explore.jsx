@@ -10,8 +10,6 @@ import {
 } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { useUser } from "../context/UserContext";
-import { openAuthModal } from "../components/AuthModal";
-import { auth } from "../firebase";
 import { resolveAssetUrl } from "../lib/api";
 import { COLLEGE_IMAGE_FALLBACK } from "../lib/assets";
 import { getCollegeDisplayAddress } from "../lib/collegeMaps";
@@ -300,7 +298,7 @@ export default function Explore() {
                       </div>
                       <div className="flex flex-col sm:flex-row gap-3 mt-auto">
                         <Link to={`/college/${college._id}`} className="flex-1 bg-brand-bg text-primary px-3 py-2.5 rounded-card font-bold text-[13px] text-center hover:bg-brand-bg/80 transition-colors duration-200">Details</Link>
-                        <button onClick={() => { if (!auth.currentUser) { openAuthModal('signup'); return; } openApplyModal(college); }} className="flex-1 bg-primary text-white px-4 py-2.5 rounded-card font-bold text-[13px] text-center hover:bg-[#0D0D12] transition-colors duration-200 hover:shadow-card">Apply Now</button>
+                        <button onClick={() => openApplyModal(college)} className="flex-1 bg-primary text-white px-4 py-2.5 rounded-card font-bold text-[13px] text-center hover:bg-[#0D0D12] transition-colors duration-200 hover:shadow-card">Apply Now</button>
                       </div>
                     </div>
                   </div>

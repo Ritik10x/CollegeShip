@@ -8,8 +8,6 @@ import {
 } from "react-icons/fa";
 import { useColleges } from "../context/CollegesContext";
 import { useUser } from "../context/UserContext";
-import { openAuthModal } from "./AuthModal";
-import { auth } from "../firebase";
 import { resolveAssetUrl } from "../lib/api";
 import { COLLEGE_IMAGE_FALLBACK } from "../lib/assets";
 import { getCollegeDisplayAddress } from "../lib/collegeMaps";
@@ -218,13 +216,7 @@ export default function Colleges() {
                         <div className="flex flex-col sm:flex-row gap-3">
                           {" "}
                           <button
-                            onClick={() => {
-                              if (!auth.currentUser) {
-                                openAuthModal("signup");
-                                return;
-                              }
-                              openApplyModal(college);
-                            }}
+                            onClick={() => openApplyModal(college)}
                             className="flex-1 bg-primary text-white py-3 px-4 rounded-lg font-medium text-sm hover:bg-[#001f4d] transition-colors duration-200 min-h-11"
                           >
                             {" "}

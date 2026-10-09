@@ -7,6 +7,7 @@ import {
   FaFileExcel,
   FaFilter,
   FaGraduationCap,
+  FaMapMarkerAlt,
   FaPhone,
   FaSearch,
   FaTimesCircle,
@@ -211,11 +212,20 @@ export default function AdminApplications() {
   const exportExcel = () => {
     const rows = filtered.map((app) => ({
       "Student Name": app.userName || "N/A",
+      "Father Name": app.fatherName || "N/A",
       Email: app.userEmail || "N/A",
       Phone: app.userPhone || "N/A",
       Age: app.userAge || "N/A",
+      Address: app.studentAddress || "N/A",
+      "Study Mode":
+        app.studyMode === "online"
+          ? "Online / Distance"
+          : app.studyMode === "offline"
+            ? "Offline / Regular"
+            : "N/A",
       College: app.universityName || "N/A",
       Course: app.course || "N/A",
+      "Preferred Course": app.preferredCourse || "",
       Status: app.status || "Applied",
       "Applied On": formatDate(app.createdAt),
     }));
@@ -446,6 +456,38 @@ function ApplicationCard({ app, actionLoading, onAccept, onReject, onDelete }) {
           icon={<FaGraduationCap className="text-accent" />}
           label="Course"
           value={app.course || "N/A"}
+        />
+        {app.preferredCourse && (
+          <InfoRow
+            icon={<FaGraduationCap className="text-text-muted" />}
+            label="Preferred"
+            value={app.preferredCourse}
+            small
+          />
+        )}
+        <InfoRow
+          icon={<FaUser className="text-text-muted" />}
+          label="Father"
+          value={app.fatherName || "N/A"}
+          small
+        />
+        <InfoRow
+          icon={<FaMapMarkerAlt className="text-text-muted" />}
+          label="Address"
+          value={app.studentAddress || "N/A"}
+          small
+        />
+        <InfoRow
+          icon={<FaUniversity className="text-primary/70" />}
+          label="Study Mode"
+          value={
+            app.studyMode === "online"
+              ? "Online / Distance"
+              : app.studyMode === "offline"
+                ? "Offline / Regular"
+                : "N/A"
+          }
+          small
         />
         <InfoRow
           icon={<FaEnvelope className="text-text-muted" />}

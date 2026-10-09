@@ -4,11 +4,11 @@ import React, {
   useState,
   useEffect,
   useRef,
+  useCallback,
 } from "react";
 import { auth, db } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { openAuthModal } from "../components/AuthModal";
 const UserContext = createContext();
 const getCollegeId = (college) => college?._id || college?.id || college?.collegeId;
 
@@ -32,7 +32,11 @@ export function UserProvider({ children }) {
   const [toast, setToast] = useState(null);
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
   const [selectedCollegeForApply, setSelectedCollegeForApply] =
-    useState(null); /* Auth State */
+    useState(null);
+  const selectedCollegeForApplyRef = useRef(null);
+  useEffect(() => {
+    selectedCollegeForApplyRef.current = selectedCollegeForApply;
+  }, [selectedCollegeForApply]);
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isAuthLoading, setIsAuthLoading] = useState(true);
@@ -88,6 +92,14 @@ export function UserProvider({ children }) {
       unsubscribeAuth();
     };
   }, []);
+  const reopenApplyModal = useCallback(() => {
+    if (selectedCollegeForApplyRef.current) setIsApplyModalOpen(true);
+  }, []);
+  useEffect(() => {
+    const handleResumeApply = () => reopenApplyModal();
+    window.addEventListener("resume-apply-modal", handleResumeApply);
+    return () => window.removeEventListener("resume-apply-modal", handleResumeApply);
+  }, [reopenApplyModal]);
   const toggleFavorite = async (college) => {
     if (!user) {
       showToast("Please login to add favorites", "info");
@@ -145,17 +157,15 @@ export function UserProvider({ children }) {
     setTimeout(() => setToast(null), 3000);
   };
   const openApplyModal = (college) => {
-    if (!auth.currentUser) {
-      showToast("Please login or sign up to apply", "error");
-      openAuthModal("signup");
-      return;
-    }
     setSelectedCollegeForApply(college);
     setIsApplyModalOpen(true);
   };
   const closeApplyModal = () => {
     setIsApplyModalOpen(false);
     setSelectedCollegeForApply(null);
+  };
+  const hideApplyModalForAuth = () => {
+    setIsApplyModalOpen(false);
   };
   return (
     <UserContext.Provider
@@ -166,6 +176,8 @@ export function UserProvider({ children }) {
         isApplyModalOpen,
         openApplyModal,
         closeApplyModal,
+        hideApplyModalForAuth,
+        reopenApplyModal,
         selectedCollegeForApply,
         showToast,
         user,

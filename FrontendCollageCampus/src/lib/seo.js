@@ -76,6 +76,25 @@ export const ROUTE_SEO = {
       isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
     },
   },
+  "/blog": {
+    title: "Scholarships Blog — State Board Schemes for Students 2026–27",
+    description:
+      "Complete guide to state board scholarship schemes in India for 2026–27. NSP deadlines, BSEB MedhaSoft, eligibility, documents, state portals, and how to apply online.",
+    keywords:
+      "state board scholarship 2027, scholarship for students India, NSP 2026-27, Bihar BSEB scholarship, MedhaSoft, post matric scholarship, pre matric scholarship, state scholarship portal",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "State Board Scholarship Schemes for Students 2026–27",
+      description:
+        "Guide to government scholarships for Indian state board students including NSP, state portals, eligibility, and application steps.",
+      author: { "@type": "Organization", name: SITE_NAME },
+      publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      datePublished: "2026-07-24",
+      mainEntityOfPage: `${SITE_URL}/blog`,
+      inLanguage: "en-IN",
+    },
+  },
   "/about": {
     title: "About CollegeShip — College Discovery Platform",
     description:

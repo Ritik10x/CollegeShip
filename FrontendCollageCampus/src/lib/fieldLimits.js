@@ -1,6 +1,10 @@
 export const FIELD_LIMITS = {
-  firstName: 40,
-  lastName: 40,
+  applyFirstName: 50,
+  applyLastName: 50,
+  fatherFirstName: 50,
+  fatherLastName: 50,
+  studentAddress: 60,
+  preferredCourse: 25,
   fullName: 80,
   email: 120,
   phone: 20,

@@ -23,8 +23,12 @@ import {
 import { auth, googleProvider } from "../firebase";
 import { FIELD_LIMITS } from "../lib/fieldLimits";
 
-export const openAuthModal = (view = "login") => {
-  window.dispatchEvent(new CustomEvent("open-auth-modal", { detail: { view } }));
+export const openAuthModal = (view = "login", options = {}) => {
+  window.dispatchEvent(
+    new CustomEvent("open-auth-modal", {
+      detail: { view, resumeApply: options.resumeApply === true },
+    }),
+  );
 };
 
 export default function AuthModal() {
@@ -45,10 +49,12 @@ export default function AuthModal() {
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [resumeApply, setResumeApply] = useState(false);
 
   useEffect(() => {
     const handleOpen = (e) => {
       setView(e.detail.view || "login");
+      setResumeApply(e.detail.resumeApply === true);
       setIsOpen(true);
       setError("");
       setFormData({
@@ -141,7 +147,8 @@ export default function AuthModal() {
       }
       window.dispatchEvent(new Event("auth-change"));
       setIsOpen(false);
-      navigate("/dashboard");
+      if (!resumeApply) navigate("/dashboard");
+      else window.dispatchEvent(new Event("resume-apply-modal"));
     } catch (err) {
       setError(authErrorMessage(err));
     } finally {
@@ -156,7 +163,8 @@ export default function AuthModal() {
       await signInWithPopup(auth, googleProvider);
       window.dispatchEvent(new Event("auth-change"));
       setIsOpen(false);
-      navigate("/dashboard");
+      if (!resumeApply) navigate("/dashboard");
+      else window.dispatchEvent(new Event("resume-apply-modal"));
     } catch (err) {
       setError(authErrorMessage(err));
     } finally {

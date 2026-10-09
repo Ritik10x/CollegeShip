@@ -199,7 +199,19 @@ export default function Applications() {
                     </h3>{" "}
                     <p className="text-accent font-semibold text-sm">
                       {app.course || "Course"}
-                    </p>{" "}
+                    </p>
+                    {app.preferredCourse && (
+                      <p className="text-text-muted text-xs mt-1 truncate">
+                        Preferred: {app.preferredCourse}
+                      </p>
+                    )}
+                    {app.studyMode && (
+                      <p className="text-text-muted text-xs mt-1">
+                        {app.studyMode === "online"
+                          ? "Online / Distance Learning"
+                          : "Offline / Regular"}
+                      </p>
+                    )}
                   </div>{" "}
                 </div>{" "}
                 <div className="bg-brand-bg p-5 border-t border-border-subtle flex justify-between items-center text-xs font-medium text-text-muted">

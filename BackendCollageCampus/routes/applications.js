@@ -21,7 +21,21 @@ const authenticate = async (req, res, next) => {
 
 router.post('/apply', authenticate, async (req, res) => {
   try {
-    const { userId, userName, userEmail, userPhone, userAge, course, universityId, universityName } = req.body;
+    const {
+      userId,
+      userName,
+      userEmail,
+      userPhone,
+      userAge,
+      course,
+      selectedCourse,
+      preferredCourse,
+      studyMode,
+      fatherName,
+      studentAddress,
+      universityId,
+      universityName,
+    } = req.body;
 
     if (req.user.uid !== userId) {
       return res.status(403).json({ success: false, message: 'Forbidden: You cannot apply on behalf of another user' });
@@ -31,13 +45,17 @@ router.post('/apply', authenticate, async (req, res) => {
       return res.status(400).json({ success: false, message: 'User email is required' });
     }
 
+    if (!studyMode || !['online', 'offline'].includes(studyMode)) {
+      return res.status(400).json({ success: false, message: 'Please select a valid study mode.' });
+    }
+
+    const courseKey = course || selectedCourse || 'General Inquiry';
     const db = admin.firestore();
 
-    // Check for duplicate application
     const existingAppSnapshot = await db.collection('applications')
       .where('userId', '==', userId)
       .where('universityId', '==', universityId)
-      .where('course', '==', course)
+      .where('course', '==', courseKey)
       .get();
 
     if (!existingAppSnapshot.empty) {
@@ -50,11 +68,16 @@ router.post('/apply', authenticate, async (req, res) => {
       userEmail,
       userPhone,
       userAge,
-      course,
+      course: courseKey,
+      selectedCourse: selectedCourse || courseKey,
+      preferredCourse: preferredCourse || null,
+      studyMode,
+      fatherName: String(fatherName || '').trim(),
+      studentAddress: String(studentAddress || '').trim(),
       universityId,
       universityName,
       status: 'Applied',
-      createdAt: admin.firestore.FieldValue.serverTimestamp()
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
     });
 
     let emailSent = false;

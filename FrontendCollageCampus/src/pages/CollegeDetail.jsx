@@ -461,6 +461,29 @@ export default function CollegeDetail() {
                       </div>{" "}
                     </div>{" "}
                   </div>{" "}
+                  {(college.studyModes?.online !== false ||
+                    college.studyModes?.offline !== false ||
+                    !college.studyModes) && (
+                    <div className="mb-8">
+                      <p className="text-[10px] font-bold text-primary tracking-wider uppercase mb-2">
+                        Study Modes
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {(college.studyModes?.online !== false ||
+                          !college.studyModes) && (
+                          <span className="rounded-full bg-brand-bg px-3 py-1 text-xs font-semibold text-primary">
+                            Online / Distance Learning
+                          </span>
+                        )}
+                        {(college.studyModes?.offline !== false ||
+                          !college.studyModes) && (
+                          <span className="rounded-full bg-brand-bg px-3 py-1 text-xs font-semibold text-primary">
+                            Offline / Regular
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  )}{" "}
                   {/* Contact Information */}{" "}
                   <div>
                     {" "}
@@ -1302,13 +1325,7 @@ export default function CollegeDetail() {
                   structures.{" "}
                 </p>{" "}
                 <button
-                  onClick={() => {
-                    if (!auth.currentUser) {
-                      openAuthModal("signup");
-                      return;
-                    }
-                    openApplyModal(college);
-                  }}
+                  onClick={() => openApplyModal(college)}
                   className="w-full bg-primary text-white font-semibold py-3 rounded-card mb-3 hover:bg-[#0D0D12] transition-colors duration-200 transition-colors shadow-card shadow-brand-bg"
                 >
                   {" "}
@@ -1385,13 +1402,7 @@ export default function CollegeDetail() {
           {" "}
           <button
             type="button"
-            onClick={() => {
-              if (!auth.currentUser) {
-                openAuthModal("signup");
-                return;
-              }
-              openApplyModal(college);
-            }}
+            onClick={() => openApplyModal(college)}
             className="w-full bg-primary text-white font-semibold py-3.5 min-h-[48px] rounded-card hover:bg-[#0D0D12] transition-colors shadow-card"
           >
             {" "}

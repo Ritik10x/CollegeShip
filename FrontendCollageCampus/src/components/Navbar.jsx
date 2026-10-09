@@ -98,6 +98,13 @@ export default function Navbar({ suppressMobileNav = false }) {
             {" "}
             Explore Colleges{" "}
           </Link>{" "}
+          <Link
+            to="/blog"
+            className="text-text-muted hover:text-accent transition-colors duration-200 font-bold text-sm transition-colors py-2"
+          >
+            {" "}
+            Blog{" "}
+          </Link>{" "}
         </nav>{" "}
         {/* Desktop Auth/User menu (Hidden on mobile) */}{" "}
         <div className="hidden lg:flex items-center gap-3">
@@ -291,6 +298,15 @@ export default function Navbar({ suppressMobileNav = false }) {
             >
               {" "}
               <span>Explore Colleges</span>{" "}
+              <span className="text-[#5B5B63]/60 text-xs">→</span>{" "}
+            </Link>{" "}
+            <Link
+              to="/blog"
+              onClick={() => setMobileOpen(false)}
+              className="text-text-main hover:text-accent transition-colors duration-200 font-bold text-base transition-colors py-2.5 border-b border-gray-50 flex items-center justify-between"
+            >
+              {" "}
+              <span>Blog</span>{" "}
               <span className="text-[#5B5B63]/60 text-xs">→</span>{" "}
             </Link>{" "}
             {user ? (

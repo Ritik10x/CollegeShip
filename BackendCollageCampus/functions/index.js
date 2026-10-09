@@ -122,11 +122,15 @@ app.post("/api/applications/apply", authenticate, async (req, res) => {
       userPhone,
       userAge,
       course,
+      selectedCourse,
+      preferredCourse,
+      studyMode,
+      fatherName,
+      studentAddress,
       universityId,
       universityName,
     } = req.body;
 
-    // Enforce that the user can only apply for themselves (matching verified token uid)
     if (req.user.uid !== userId) {
       return res.status(403).json({ success: false, message: "Forbidden: You cannot apply on behalf of another user" });
     }
@@ -140,13 +144,37 @@ app.post("/api/applications/apply", authenticate, async (req, res) => {
       return res.status(403).json({ success: false, message: "Use the email address associated with your account" });
     }
 
-    const db = admin.firestore();
+    if (!studyMode || !["online", "offline"].includes(studyMode)) {
+      return res.status(400).json({ success: false, message: "Please select a valid study mode." });
+    }
 
-    // Check for duplicate application (same user, same university, same course)
+    if (!fatherName || String(fatherName).trim().length === 0) {
+      return res.status(400).json({ success: false, message: "Father name is required." });
+    }
+
+    if (!studentAddress || String(studentAddress).trim().length === 0) {
+      return res.status(400).json({ success: false, message: "Student address is required." });
+    }
+
+    if (String(studentAddress).length > 60) {
+      return res.status(400).json({ success: false, message: "Student address cannot exceed 60 characters." });
+    }
+
+    if (preferredCourse && String(preferredCourse).length > 25) {
+      return res.status(400).json({ success: false, message: "Preferred course cannot exceed 25 characters." });
+    }
+
+    if (preferredCourse && !/^[a-zA-Z0-9\s]+$/.test(String(preferredCourse))) {
+      return res.status(400).json({ success: false, message: "Preferred course may only contain letters and numbers." });
+    }
+
+    const db = admin.firestore();
+    const courseKey = course || selectedCourse || "General Inquiry";
+
     const existingAppSnapshot = await db.collection("applications")
       .where("userId", "==", userId)
       .where("universityId", "==", universityId)
-      .where("course", "==", course)
+      .where("course", "==", courseKey)
       .get();
 
     if (!existingAppSnapshot.empty) {
@@ -159,7 +187,12 @@ app.post("/api/applications/apply", authenticate, async (req, res) => {
       userEmail: verifiedEmail,
       userPhone,
       userAge,
-      course,
+      course: courseKey,
+      selectedCourse: selectedCourse || courseKey,
+      preferredCourse: preferredCourse || null,
+      studyMode,
+      fatherName: String(fatherName).trim(),
+      studentAddress: String(studentAddress).trim(),
       universityId,
       universityName,
       status: "Applied",
